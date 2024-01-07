@@ -1,0 +1,9 @@
+.column-container {
+    columns: 5;
+    column-gap: 20px;
+    break-inside: avoid;
+}
+
+.column-item {
+    break-inside: avoid-column;
+}
