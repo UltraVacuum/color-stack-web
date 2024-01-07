@@ -1,0 +1,17 @@
+component: http
+name: color-stack-fe
+inputs:
+  src:
+    dist: ./
+    hook: npm run build
+    exclude:
+      - .env
+  faas:
+    runtime: Nodejs12.16
+    framework: nextjs
+    name: ${name}
+  apigw:
+    protocols:
+      - http
+      - https
+app: color-stack-66e0a351
