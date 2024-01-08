@@ -8,13 +8,13 @@ import './clip-copy.css';
 
 export const ClipCopy = ({ text }: { text: string }) => {
     const [copied, setCopy] = useState(false);
+    const { toast } = useToast()
 
     const handleCopyClick = async () => {
         try {
             const textCopied = await copy(text);
             setCopy(true)
         } catch (err) {
-            const { toast } = useToast()
             toast({
                 title: "Copy Failed",
                 description: "Failed to copy text to clipboard:" + err,
