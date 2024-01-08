@@ -6,7 +6,7 @@ import './globals.css'
 
 import { ReactQueryProvider } from "./query-provider";
 
-export const inter = Inter({
+const inter = Inter({
     subsets: ["latin"],
     variable: "--font-sans",
 })

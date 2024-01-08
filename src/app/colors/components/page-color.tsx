@@ -1,14 +1,12 @@
 "use client";
-import { useRef, useState, useCallback, useEffect } from "react";
-import {
-    useVirtualizer,
-} from '@tanstack/react-virtual';
+// import { useRef, useState, useCallback, useEffect } from "react";
+
 import {
     useQuery,
     useInfiniteQuery
 } from '@tanstack/react-query';
-import { Button } from '@/components/ui/button'
 
+import { Button } from '@/components/ui/button'
 import { ColorCard } from "./color-pannel";
 
 import "./page-color.css";
@@ -38,6 +36,11 @@ export const PageColor = () => {
     // const { count, next, previous, results } = data;
     const allRows = data ? data.pages.flatMap(({ page }) => page.results) : []
 
+    const loadMoreHandler = (event: any) => {
+        event.stopPropagation()
+        fetchNextPage()
+    }
+
     if (error) {
         return (
             <p>error</p>
@@ -58,7 +61,7 @@ export const PageColor = () => {
             <div className="flex align-center justify-center">
                 {isFetching && !isFetchingNextPage ?
                     'Fetching...' :
-                    <Button onClick={fetchNextPage} variant="outline">Load More</Button>
+                    <Button onClick={loadMoreHandler} variant="outline">Load More</Button>
                 }
             </div>
         </div>
