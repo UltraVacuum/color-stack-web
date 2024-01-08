@@ -6,7 +6,7 @@ const nextConfig = {
     // assetPrefix: '',
     basePath: '',
     // output: 'export',
-    distDir: 'build',
+    // distDir: 'build',
 }
 
 module.exports = nextConfig
