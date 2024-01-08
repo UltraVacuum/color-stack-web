@@ -6,7 +6,7 @@ export default function Home() {
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <div className="z-10 max-w-5xl w-full items-center justify-between font-mono lg:flex">
                 <p className="flex w-full justify-center border-b border-gray-300  pb-6 pt-8 ">
-                    Get started by exploring all the world's page&nbsp;
+                    Get started by exploring all the world&rsquo;s page&nbsp;
                     <code className="font-mono font-bold">
                         <Link href="/colors">COLORS</Link>
                     </code>

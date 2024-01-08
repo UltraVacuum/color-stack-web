@@ -8,7 +8,7 @@ import './clip-copy.css';
 
 export const ClipCopy = ({ text }: { text: string }) => {
     const [copied, setCopy] = useState(false);
-    const { toast } = useToast() //eslint-disable-line no-react-hook
+    const { toast } = useToast()
 
     const handleCopyClick = async () => {
         try {
