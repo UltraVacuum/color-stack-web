@@ -1,26 +1,34 @@
+import Link from 'next/link'
+import Image from 'next/image'
+
 export const Navigation = () => {
     return (
         <div className='sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75'>
-            <div className='max-w-8xl mx-auto'>
+            <div className='container mx-auto'>
                 <div className='py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0'>
                     <div className='relative flex items-center'>
-                        <a
+                        <Link
                             className='mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto'
                             href='/'
                         >
+                            <Image
+                                src="/icons/128x128.png"
+                                alt="Vercel Logo"
+                                className="dark:invert"
+                                width={24}
+                                height={24}
+                                priority
+                            />
                             <span className='sr-only'>Color Stack</span>
-                        </a>
-                        <div className='relative' data-headlessui-state=''>
-                            <button
+                        </Link>
+                        <div className='relative'>
+                            <Link
                                 className='text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-slate-400/20 dark:highlight-white/5'
-                                id='headlessui-menu-button-:Racr6:'
                                 type='button'
-                                aria-haspopup='true'
-                                aria-expanded='false'
-                                data-headlessui-state=''
+                                href="/"
                             >
                                 Color Stack
-                            </button>
+                            </Link>
                         </div>
 
                         <div className='relative hidden lg:flex items-center ml-auto'>
@@ -31,7 +39,7 @@ export const Navigation = () => {
                                             className='hover:text-sky-500 dark:hover:text-sky-400'
                                             href='/docs/installation'
                                         >
-                                            Docs
+                                            Datasets
                                         </a>
                                     </li>
                                     <li>
@@ -39,7 +47,7 @@ export const Navigation = () => {
                                             href='https://tailwindui.com/?ref=top'
                                             className='hover:text-sky-500 dark:hover:text-sky-400'
                                         >
-                                            Components
+                                            Popular
                                         </a>
                                     </li>
                                     <li>
@@ -47,7 +55,7 @@ export const Navigation = () => {
                                             className='hover:text-sky-500 dark:hover:text-sky-400'
                                             href='/blog'
                                         >
-                                            Blog
+                                            Playground
                                         </a>
                                     </li>
                                     <li>
@@ -55,7 +63,7 @@ export const Navigation = () => {
                                             className='hover:text-sky-500 dark:hover:text-sky-400'
                                             href='/showcase'
                                         >
-                                            Showcase
+                                            About
                                         </a>
                                     </li>
                                 </ul>
