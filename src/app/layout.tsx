@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import { Toaster } from "@/components/ui/toaster"
 
@@ -21,11 +22,30 @@ export default function RootLayout({
 }: {
     children: React.ReactNode
 }) {
+    const gAnalysis = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
     return (
         <html lang="en">
             <body className={inter.className}>
                 <ReactQueryProvider>{children}</ReactQueryProvider>
                 <Toaster />
+                {
+                    gAnalysis ? (
+                        <>
+                            <Script
+                                strategy="lazyOnload"
+                                src={`https://www.googletagmanager.com/gtag/js?id=${gAnalysis}`}
+                            />
+                            <Script strategy="lazyOnload">
+                                {`
+                                    window.dataLayer = window.dataLayer || [];
+                                    function gtag(){dataLayer.push(arguments);}
+                                    gtag('js', new Date());
+                                    gtag('config', '${gAnalysis}');
+                                `}
+                            </Script>
+                        </>
+                    ) : null
+                }
             </body>
         </html>
     )
