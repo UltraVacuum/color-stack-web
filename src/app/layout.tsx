@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import { Toaster } from "@/components/ui/toaster"
+import { Analytics } from '@vercel/analytics/react';
 
 import './globals.css'
 
@@ -28,6 +29,7 @@ export default function RootLayout({
             <body className={inter.className}>
                 <ReactQueryProvider>{children}</ReactQueryProvider>
                 <Toaster />
+                <Analytics />
                 {
                     gAnalysis ? (
                         <>
