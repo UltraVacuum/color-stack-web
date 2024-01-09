@@ -32,10 +32,11 @@ export default function RootLayout({
                     gAnalysis ? (
                         <>
                             <Script
-                                strategy="lazyOnload"
+                                id="g-analysis"
+                                async
                                 src={`https://www.googletagmanager.com/gtag/js?id=${gAnalysis}`}
                             />
-                            <Script strategy="lazyOnload">
+                            <Script id="g-analysis-script">
                                 {`
                                     window.dataLayer = window.dataLayer || [];
                                     function gtag(){dataLayer.push(arguments);}
