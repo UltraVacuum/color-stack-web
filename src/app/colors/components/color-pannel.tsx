@@ -1,4 +1,5 @@
-import cx from 'classnames'
+import _ from 'lodash';
+
 import {
     Popover,
     PopoverContent,
@@ -6,8 +7,21 @@ import {
 } from "@/components/ui/popover";
 import { ClipCopy } from './clip-copy'
 
+const nestColors = (arr: any, len: number) => {
+    const n = arr.length - len
+    if (n >= 0) return _.slice(arr, 0, len)
+    const fillColor = {
+        hex: '#FFFFFF',
+        color: 'rgb(255,255,255)',
+        count: 0,
+        isFake: 1,
+    }
+    const fills = _.fill(new Array(Math.abs(n)), fillColor)
+    return _.concat(arr, fills)
+}
+
 export const ColorItem = (props: any) => {
-    const { color: { color: rgb, count, hex } } = props;
+    const { color: { color: rgb, count, hex, isFake } } = props;
     return (
         <Popover >
             <PopoverTrigger>
@@ -16,30 +30,41 @@ export const ColorItem = (props: any) => {
                 </div>
             </PopoverTrigger>
             <PopoverContent>
-                <div className="font-mono font-medium text-xs leading-6
-                    text-sky-500 whitespace-nowrap flex items-center justify-between">
-                    <span>HEX: {hex}</span>
-                    <ClipCopy text={hex} />
-                </div>
-                <div className="font-mono font-medium text-xs leading-6 
-                    text-sky-500 whitespace-nowrap flex items-center justify-between">
-                    <span>RGB: {rgb}</span>
-                    <ClipCopy text={rgb} />
-                </div>
-                <div className="font-mono text-xs leading-6 text-indigo-600 "
-                >
-                    {count} elements counts in the page.
-                </div>
+                {
+                    isFake ?
+                        <div className="font-mono font-medium text-xs">
+                            <p>This color is blank</p>
+                            <span>Go and fill this colors!</span>
+                        </div> :
+                        <>
+                            <div className="font-mono font-medium text-xs leading-6
+                        text-sky-500 whitespace-nowrap flex items-center justify-between">
+                                <span>HEX: {hex}</span>
+                                <ClipCopy text={hex} />
+                            </div>
+                            <div className="font-mono font-medium text-xs leading-6 
+                        text-sky-500 whitespace-nowrap flex items-center justify-between">
+                                <span>RGB: {rgb}</span>
+                                <ClipCopy text={rgb} />
+                            </div>
+                            <div className="font-mono text-xs leading-6 text-indigo-600 "
+                            >
+                                {count} elements counts in the page.
+                            </div>
+                        </>
+                }
             </PopoverContent>
         </Popover>
     );
 };
 
 export const ColorList = ({ colors }: any) => {
+    const rc = nestColors(colors, 20)
+    console.log(rc)
     return (
         <div className="relative">
             <div className="grid grid-cols-5 gap-2">
-                {colors.map((color: any, index: any) => {
+                {rc.map((color: any, index: any) => {
                     return <ColorItem color={color} key={index} />
                 })}
             </div>

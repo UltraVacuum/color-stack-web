@@ -47,16 +47,20 @@ export const PageColor = () => {
         )
     }
 
+    // const rc = SplitArray(allRows, 5)
+
     return (
         <div className="container p-8">
-            <div className="column-container columns-5 mb-8">
-                {allRows.map((page) => {
-                    return (
-                        <div key={page.id} className="column-item p-4">
-                            <ColorCard page={page} />
-                        </div>
-                    )
-                })}
+            <div className="grid grid-cols-5 gap-4 mb-8">
+                {
+                    allRows.map((page: any, idx: number) => {
+                        return (
+                            <div className="grid-item p-4" key={idx}>
+                                <ColorCard page={page} />
+                            </div>
+                        )
+                    })
+                }
             </div>
             <div className="flex align-center justify-center">
                 {isFetching && !isFetchingNextPage ?
