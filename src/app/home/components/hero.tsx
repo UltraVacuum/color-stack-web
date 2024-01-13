@@ -40,7 +40,7 @@ const BottomPolygon = () => {
     )
 }
 
-export default () => {
+export default function Hero() {
     return (
         <div className='relative pt-16 pb-32 flex content-center items-center justify-center h-screen'>
             <div
