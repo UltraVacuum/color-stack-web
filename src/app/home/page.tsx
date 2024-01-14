@@ -9,7 +9,8 @@ const getData = async () => {
     const ps = 24 * 12
     const apiUrl = process.env.API_URL
     const res = await fetch(`${apiUrl}/color-sets?page=${pg}&page_size=${ps}`, {
-        method: "GET"
+        method: "GET",
+        cache: 'no-store'
     })
     return await res.json()
 }
