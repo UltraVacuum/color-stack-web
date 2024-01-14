@@ -1,11 +1,11 @@
-import { Navigation } from "./components/navigation";
-import { PageColor } from './components/page-color';
+import Navigation from "./components/navigation";
+import ColorFlow from './components/color-flow';
 
-export default async function Page() {
+export default function Page() {
     return (
-        <main className="">
+        <>
             <Navigation />
-            <PageColor />
-        </main>
+            <ColorFlow />
+        </>
     )
 }

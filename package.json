@@ -20,7 +20,6 @@
         "@radix-ui/react-toast": "^1.1.5",
         "@tanstack/react-query": "^5.17.0",
         "@tanstack/react-virtual": "^3.0.1",
-        "@types/lodash": "^4.14.202",
         "@vercel/analytics": "^1.1.1",
         "@vercel/speed-insights": "^1.0.2",
         "class-variance-authority": "^0.7.0",
@@ -28,6 +27,7 @@
         "clipboard-copy": "^4.0.1",
         "clsx": "^2.0.0",
         "lodash": "^4.17.21",
+        "lucide-react": "^0.309.0",
         "next": "14.0.4",
         "next-auth": "5.0.0-beta.4",
         "react": "^18",
@@ -36,6 +36,7 @@
         "tailwindcss-animate": "^1.0.7"
     },
     "devDependencies": {
+        "@types/lodash": "^4.14.202",
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",

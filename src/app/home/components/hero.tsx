@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import { Button } from "@/components/ui/button"
 
 import './hero.css';
 
@@ -43,18 +45,18 @@ const BottomPolygon = () => {
 export default function Hero() {
     return (
         <div className='relative pt-16 pb-32 flex content-center items-center justify-center h-screen'>
+            <Image
+                className='absolute top-0 left-0 bottom-0 right-0 w-full h-full'
+                src="/home/hero.png"
+                alt="backgrounds"
+                fill={true}
+                unoptimized={true}
+                style={{ objectFit: 'cover' }}
+            />
             <div
-                className='absolute top-0 w-full h-full bg-center bg-cover'
-                style={{
-                    background: `url("/home/hero-1.jpg") center/cover no-repeat`
-                }}
-            >
-
-                <span
-                    id='blackOverlay'
-                    className='w-full h-full absolute opacity-50 bg-black'
-                ></span>
-            </div>
+                className='w-full h-full absolute top-0 left-0 bottom-0 right-0 
+                opacity-50 bg-black'
+            />
             <div className='container relative mx-auto'>
                 <div className='items-center flex flex-wrap'>
                     <div className='w-full lg:w-10/12 px-4 ml-auto mr-auto text-center'>
@@ -62,13 +64,13 @@ export default function Hero() {
                             <h1 className='text-white font-semibold text-8xl'>
                                 Match your design with all colors.
                             </h1>
-                            <p className="flex w-full justify-center text-slate-200 text-4xl pb-6 pt-8 ">
+                            <p className="flex w-full justify-center text-zinc-50 text-4xl pb-6 pt-8 ">
                                 Get started by exploring all the world&rsquo;s page&nbsp;
-                                <code className="font-mono font-bold ">
-                                    <Link href="/colors">COLORS</Link>
-                                </code>
+                                <Link href="/colors" className="font-mono font-bold ">
+                                    <Button className="text-4xl" variant="secondary">COLORS</Button>
+                                </Link>
                             </p>
-                            <p className='mt-4 text-lg text-slate-100'>
+                            <p className='mt-4 text-2xl text-slate-100'>
                                 Get ideas of all the colors from world most popular pages.
                             </p>
                         </div>
