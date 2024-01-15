@@ -1,8 +1,6 @@
 "use client";
-import {
-    useInfiniteQuery
-} from '@tanstack/react-query';
 import { Loader } from "lucide-react"
+import { useInfiniteQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button'
 import { ColorCard } from "./color-card";
 
@@ -31,7 +29,9 @@ export default function ColorFlow() {
     })
 
     // const { count, next, previous, results } = data;
-    const allRows = data ? data.pages.flatMap(({ page }: { page: any }) => page.results) : []
+    const allRows = data ?
+        data.pages.flatMap(({ page }: { page: any }) =>
+            page.results) : []
 
     const loadMoreHandler = (event: any) => {
         event.stopPropagation()
@@ -40,11 +40,9 @@ export default function ColorFlow() {
 
     if (error) {
         return (
-            <div>error</div>
+            <div>Error</div>
         )
     }
-
-    // const rc = SplitArray(allRows, 5)
 
     return (
         <div className="container p-8">

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import { Toaster } from "@/components/ui/toaster"
+import Footer from '@/components/local/footer'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -29,6 +30,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
                 <ReactQueryProvider>{children}</ReactQueryProvider>
+                <Footer />
                 <Toaster />
                 <Analytics />
                 <SpeedInsights />

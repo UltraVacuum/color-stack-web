@@ -64,11 +64,15 @@ export default function Hero() {
                             <h1 className='text-white font-semibold text-8xl'>
                                 Match your design with all colors.
                             </h1>
-                            <p className="flex w-full justify-center text-zinc-50 text-4xl pb-6 pt-8 ">
-                                Get started by exploring all the world&rsquo;s page&nbsp;
-                                <Link href="/colors" className="font-mono font-bold ">
-                                    <Button className="text-4xl" variant="secondary">COLORS</Button>
-                                </Link>
+                            <p className="flex w-full justify-center items-center text-zinc-50 text-4xl pb-6 pt-8 ">
+                                <span>
+                                    Get started by exploring all the world&rsquo;s page&nbsp;
+                                </span>
+                                <Button className="bg-green-400 text-4xl p-8 font-mono font-bold" variant="secondary">
+                                    <Link href="/colors" className="">
+                                        COLORS
+                                    </Link>
+                                </Button>
                             </p>
                             <p className='mt-4 text-2xl text-slate-100'>
                                 Get ideas of all the colors from world most popular pages.
