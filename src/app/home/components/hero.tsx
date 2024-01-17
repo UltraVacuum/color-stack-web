@@ -60,20 +60,22 @@ export default function Hero() {
             <div className='container relative mx-auto'>
                 <div className='items-center flex flex-wrap'>
                     <div className='w-full lg:w-10/12 px-4 ml-auto mr-auto text-center'>
-                        <div className='pr-12'>
-                            <h1 className='text-white font-semibold text-8xl'>
+                        <div className=''>
+                            <h1 className='text-white font-semibold lg:text-8xl text-4xl'>
                                 Match your design with all colors.
                             </h1>
-                            <p className="flex w-full justify-center items-center text-zinc-50 text-4xl pb-6 pt-8 ">
-                                <span>
+                            <div className="w-full lg:flex lg:justify-center lg:items-center text-zinc-50 
+                                text-2xl lg:text-4xl pb-6 pt-8">
+                                <p className="mb-2">
                                     Get started by exploring all the world&rsquo;s page&nbsp;
-                                </span>
-                                <Button className="bg-green-400 text-4xl p-8 font-mono font-bold" variant="secondary">
-                                    <Link href="/colors" className="">
+                                </p>
+                                <Link href="/colors" className="">
+                                    <Button className="bg-green-400 text-4xl p-8 font-mono font-bold w-full"
+                                        variant="secondary">
                                         COLORS
-                                    </Link>
-                                </Button>
-                            </p>
+                                    </Button>
+                                </Link>
+                            </div>
                             <p className='mt-4 text-2xl text-slate-100'>
                                 Get ideas of all the colors from world most popular pages.
                             </p>

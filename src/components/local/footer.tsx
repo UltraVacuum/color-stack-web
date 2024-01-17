@@ -1,8 +1,10 @@
-import { TwitterIcon, GithubIcon, FacebookIcon, DribbbleIcon } from 'lucide-react';
+import {
+    TwitterIcon, GithubIcon, FacebookIcon, DribbbleIcon,
+} from 'lucide-react';
 
 export default function Footer() {
     return (
-        <footer className="relative bg-gray-50 pt-8 pb-6">
+        <footer className="relative bg-gray-50 pt-8 pb-6 lg:mt-20">
             <div
                 className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
                 style={{ transform: 'translateZ(0px)' }}

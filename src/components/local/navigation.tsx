@@ -53,7 +53,7 @@ export default function Navigation() {
                                     <li>
                                         <a
                                             className='hover:text-sky-500 dark:hover:text-sky-400'
-                                            href='/blog'
+                                            href='/playground'
                                         >
                                             Playground
                                         </a>
@@ -61,7 +61,7 @@ export default function Navigation() {
                                     <li>
                                         <a
                                             className='hover:text-sky-500 dark:hover:text-sky-400'
-                                            href='/showcase'
+                                            href='/about'
                                         >
                                             About
                                         </a>
@@ -92,7 +92,7 @@ export default function Navigation() {
                                     </span>
                                 </button>
                                 <a
-                                    href='https://github.com/tailwindlabs/tailwindcss'
+                                    href='/'
                                     className='ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300'
                                 >
                                     <span className='sr-only'>Tailwind CSS on GitHub</span>
