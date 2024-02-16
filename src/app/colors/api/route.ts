@@ -13,10 +13,10 @@ export async function GET(request: Request) {
 
     return Response.json({
         page: {
-            prev: pg - 1,
-            curr: pg,
-            next: pg + 1,
-            count: 1314,
+            // prev: pg - 1,
+            // curr: pg,
+            // next: pg + 1,
+            // count: 1314,
             results: data
         }
     })
