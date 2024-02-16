@@ -1,7 +1,63 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { createClient } from "@/supabase/server";
+import AuthButton from '@/components/local/auth-btn';
 
+const HeadMenus = () => {
+    const menus = [{
+        path: '/explore',
+        title: 'Explore',
+    }, {
+        path: '/datasets',
+        title: 'Datasets',
+    }, {
+        path: '/about',
+        title: 'About',
+    }, {
+        path: 'https://chromewebstore.google.com/detail/fast-color-picker/odejgpnelfibbifobdffndebnbielcdl?hl=zh-CN&authuser=0&ref=color-stack',
+        title: 'Tools',
+        target: '_blank'
+    }]
+
+    const canInitSupabaseClient = () => {
+        // This function is just for the interactive tutorial.
+        // Feel free to remove it once you have Supabase connected.
+        try {
+            createClient();
+            return true;
+        } catch (e) {
+            return false;
+        }
+    };
+
+    const isSupabaseConnected = canInitSupabaseClient();
+    return (
+        <nav className='text-sm leading-6 font-semibold
+                text-slate-700 dark:text-slate-200'>
+            <div className='flex space-x-8'>
+                {
+                    menus.map((m, i) => {
+                        return (
+                            <a
+                                className='hover:text-sky-500 dark:hover:text-sky-400'
+                                href={`${m.path}`}
+                                target={`${m.target || ''}`}
+                                key={i}
+                            >
+                                {`${m.title}`}
+                            </a>
+                        )
+                    })
+                }
+                {isSupabaseConnected && <AuthButton />}
+            </div>
+        </nav>
+    )
+}
 export default function Navigation() {
+    // todo: popular\palyground\
+
+
     return (
         <div className='sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75'>
             <div className='container mx-auto'>
@@ -32,42 +88,7 @@ export default function Navigation() {
                         </div>
 
                         <div className='relative hidden lg:flex items-center ml-auto'>
-                            <nav className='text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200'>
-                                <ul className='flex space-x-8'>
-                                    <li>
-                                        <a
-                                            className='hover:text-sky-500 dark:hover:text-sky-400'
-                                            href='/docs/installation'
-                                        >
-                                            Datasets
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href='https://tailwindui.com/?ref=top'
-                                            className='hover:text-sky-500 dark:hover:text-sky-400'
-                                        >
-                                            Popular
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            className='hover:text-sky-500 dark:hover:text-sky-400'
-                                            href='/playground'
-                                        >
-                                            Playground
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            className='hover:text-sky-500 dark:hover:text-sky-400'
-                                            href='/about'
-                                        >
-                                            About
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                            <HeadMenus />
                             <div className='flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800'>
                                 <label
                                     className='sr-only'

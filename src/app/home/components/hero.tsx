@@ -67,12 +67,12 @@ export default function Hero() {
                             <div className="w-full lg:flex lg:justify-center lg:items-center text-zinc-50 
                                 text-2xl lg:text-4xl pb-6 pt-8">
                                 <p className="mb-2">
-                                    Get started by exploring all the world&rsquo;s page&nbsp;
+                                    Get inspired by exploring Colors
                                 </p>
-                                <Link href="/colors" className="">
+                                <Link href="/explore" className="">
                                     <Button className="bg-green-400 text-4xl p-8 font-mono font-bold w-full"
                                         variant="secondary">
-                                        COLORS
+                                        Explore
                                     </Button>
                                 </Link>
                             </div>

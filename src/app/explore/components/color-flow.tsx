@@ -7,7 +7,7 @@ import { ColorCard } from "./color-card";
 import "./color-flow.css";
 
 const fetchColor = async (page: number) => {
-    const res = await fetch(`/colors/api?page=${page}`, { method: "GET", })
+    const res = await fetch(`/explore/api?page=${page}`, { method: "GET", })
     return res.json()
 }
 

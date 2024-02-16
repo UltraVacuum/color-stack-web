@@ -29,7 +29,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <ReactQueryProvider>{children}</ReactQueryProvider>
+                <ReactQueryProvider>
+                    <main className="min-h-screen flex flex-col items-center">
+                        {children}
+                    </main>
+                </ReactQueryProvider>
                 <Footer />
                 <Toaster />
                 <Analytics />
