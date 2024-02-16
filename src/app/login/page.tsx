@@ -2,7 +2,7 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "@/supabase/server";
-import { initClient } from "@/supabase/init";
+// import { initClient } from "@/supabase/init";
 // import { Auth } from '@supabase/auth-ui-react'
 
 export default function Login({
@@ -16,12 +16,12 @@ export default function Login({
 
     const signInWithGoogle = async (formData: FormData) => {
         "use server";
-        const supabase = initClient();
+        const supabase = createClient();
         const { data, error }: any = await supabase.auth.signInWithOAuth({
             provider: 'google'
         })
         if (data) {
-            // return window.location.href = data.url;
+            console.log(data.url)
             return redirect(data.url)
         }
     }
