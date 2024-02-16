@@ -89,10 +89,11 @@ export const ColorHead = ({ page }: { page: { page_title: string, page_url: stri
 }
 
 export const ColorCard = ({ page }: { page: any }) => {
+    const showColors = JSON.parse(page.pres_colors)
     return (
         <>
             <ColorHead page={page} />
-            <ColorList colors={page.pres_colors} />
+            <ColorList colors={showColors} />
         </>
     )
 }

@@ -22,7 +22,7 @@ export default function ColorFlow() {
         isFetchingNextPage,
         status,
     } = useInfiniteQuery({
-        queryKey: ['page'],
+        queryKey: ['data'],
         queryFn: (ctx: any) => fetchColor(ctx.pageParam),
         initialPageParam: 1,
         getNextPageParam: (lastPage: any, pages: any) => pages.length,
@@ -30,8 +30,8 @@ export default function ColorFlow() {
 
     // const { count, next, previous, results } = data;
     const allRows = data ?
-        data.pages.flatMap(({ page }: { page: any }) =>
-            page.results) : []
+        data.pages.flatMap(({ page }: { page: any }) => page.results)
+        : []
 
     const loadMoreHandler = (event: any) => {
         event.stopPropagation()

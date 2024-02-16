@@ -1,3 +1,4 @@
+import { createClient } from "@/supabase/client";
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -5,14 +6,16 @@ import Hero from './components/hero'
 import ColorSets from './components/color-sets'
 
 const getData = async () => {
-    const pg = Math.round(Math.random() * 50 + 1)
-    const ps = 24 * 12
-    const apiUrl = process.env.API_URL
-    const res = await fetch(`${apiUrl}/color-sets?page=${pg}&page_size=${ps}`, {
-        method: "GET",
-        cache: 'no-store'
-    })
-    return await res.json()
+
+    const pg = Math.round(Math.random() * 50 + 1) // page
+    const ps = 24 * 12 // page size
+
+    const supabase = createClient()
+    const { data, error } = await supabase.from('colors')
+        .select('*')
+        .range(pg * ps + 1, pg * ps + ps)
+
+    return { results: data }
 }
 
 export default async function Home() {
@@ -20,11 +23,8 @@ export default async function Home() {
     return (
         <>
             <Hero />
-
             <div className="flex min-h-screen flex-col items-center justify-between lg:px-24 px-4">
-
                 <ColorSets colorSets={colorSets} />
-
                 <div className="mb-32 mt-8 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-3 lg:text-left">
                     <Link
                         href="/colors"
@@ -40,7 +40,6 @@ export default async function Home() {
                             Find your favorite color panel from all over the world.
                         </p>
                     </Link>
-
                     <Link
                         href="/datasets"
                         className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
@@ -55,7 +54,6 @@ export default async function Home() {
                             Learn the history of colors from color datasets.
                         </p>
                     </Link>
-
                     <Link
                         href="/Panels"
                         className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
@@ -73,6 +71,5 @@ export default async function Home() {
                 </div>
             </div>
         </>
-
     )
 }

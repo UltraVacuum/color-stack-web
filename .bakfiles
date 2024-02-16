@@ -1,1 +1,3 @@
-psql "postgres://default:R7gixzuC4SJy@ep-odd-brook-84071775.us-east-1.postgres.vercel-storage.com:5432/verceldb"
+subase_pwd = "!6JuY)6h~i~m_5."
+subase_client_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh1b2pwY2F1b2N1bGhqY2hmcXJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDU4MTc2OTksImV4cCI6MjAyMTM5MzY5OX0.U-PH3_tZQ0E-BGf5Hx9woL9KmTuo2hfquxEX--m4djM"
+subase_server_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh1b2pwY2F1b2N1bGhqY2hmcXJ3Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwNTgxNzY5OSwiZXhwIjoyMDIxMzkzNjk5fQ.vHz8JGEqI7Nl058An9XdItj-Sfd0FLvcDcSOTH-Aws8"
