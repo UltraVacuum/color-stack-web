@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/supabase/server";
 // import { initClient } from "@/supabase/init";
 // import { Auth } from '@supabase/auth-ui-react'
+import GoogleIcon from './google-icon';
 
 export default function Login({
     searchParams,
@@ -92,52 +93,58 @@ export default function Login({
                 </svg>{" "}
                 Back
             </Link>
-
-            <form
-                className="animate-in text-center flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
-                action={signIn}
-            >
-                <label className="text-md" htmlFor="email">
-                    Email
-                </label>
-                <input
-                    className="rounded-md px-4 py-2 bg-inherit border mb-6"
-                    name="email"
-                    placeholder="you@example.com"
-                    required
-                />
-                <label className="text-md" htmlFor="password">
-                    Password
-                </label>
-                <input
-                    className="rounded-md px-4 py-2 bg-inherit border mb-6"
-                    type="password"
-                    name="password"
-                    placeholder="••••••••"
-                    required
-                />
-                <button className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2">
-                    Sign In
-                </button>
-                <button
-                    formAction={signUp}
-                    className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
-                >
-                    Sign Up
-                </button>
-                <button
-                    formAction={signInWithGoogle}
-                    className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
-                >
-                    Sign in with Google
-                </button>
-                {/* <Auth supabaseClient={supabase} /> */}
-                {searchParams?.message && (
-                    <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
-                        {searchParams.message}
-                    </p>
-                )}
-            </form>
+            <div className="animate-in text-center flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
+                <form action={signInWithGoogle}>
+                    <button type="submit"
+                        formAction={signInWithGoogle}
+                        className="btn-md grow w-full flex items-center justify-center border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2">
+                        <div className="w-4 h-4 mr-4">
+                            <GoogleIcon />
+                        </div>
+                        Continue with Google
+                    </button>
+                </form>
+                <form action={signIn}>
+                    <div className="flex items-center mb-4">
+                        <label className="flex-none w-20 py-2 text-md text-left" htmlFor="email">
+                            Email
+                        </label>
+                        <input
+                            className="flex-1 rounded-md px-4 py-2 bg-inherit border"
+                            name="email"
+                            placeholder="you@example.com"
+                            required
+                        />
+                    </div>
+                    <div className="flex items-center mb-4">
+                        <label className="flex-none w-20 py-2 text-md text-left" htmlFor="password">
+                            Password
+                        </label>
+                        <input
+                            className="flex-1 rounded-md px-4 py-2 bg-inherit border"
+                            type="password"
+                            name="password"
+                            placeholder="••••••••"
+                            required
+                        />
+                    </div>
+                    <button className="w-full bg-sky-400 rounded-md px-4 py-2 text-foreground mb-2">
+                        Sign In
+                    </button>
+                    <button
+                        formAction={signUp}
+                        className="w-full border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
+                    >
+                        Sign Up
+                    </button>
+                    {/* <Auth supabaseClient={supabase} /> */}
+                    {searchParams?.message && (
+                        <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
+                            {searchParams.message}
+                        </p>
+                    )}
+                </form>
+            </div>
         </div>
     );
 }
