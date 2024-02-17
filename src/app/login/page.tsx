@@ -18,8 +18,12 @@ export default function Login({
     const signInWithGoogle = async (formData: FormData) => {
         "use server";
         const supabase = createClient();
+        const redirectUrl = process.env.NEXT_AUTH_REDIRECT_URL
         const { data, error }: any = await supabase.auth.signInWithOAuth({
-            provider: 'google'
+            provider: 'google',
+            options: {
+                redirectTo: redirectUrl,
+            },
         })
         if (data) {
             console.log(data.url)
