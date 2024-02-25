@@ -59,8 +59,7 @@ export const ColorItem = (props: any) => {
 };
 
 export const ColorList = ({ colors }: any) => {
-    const rc = nestColors(colors, 20)
-    console.log(rc)
+    const rc = nestColors(colors, 25)
     return (
         <div className="relative">
             <div className="grid grid-cols-5 gap-2">
@@ -89,7 +88,19 @@ export const ColorHead = ({ page }: { page: { page_title: string, page_url: stri
 }
 
 export const ColorCard = ({ page }: { page: any }) => {
-    const showColors = JSON.parse(page.pres_colors)
+    const presColor = page.pres_colors
+    let showColors = null
+    // todo: ref
+    if (
+        typeof presColor === 'object' &&
+        Array.isArray(presColor) &&
+        presColor !== null
+    ) {
+        showColors = presColor;
+    } else {
+        showColors = JSON.parse(presColor)
+    }
+
     return (
         <>
             <ColorHead page={page} />

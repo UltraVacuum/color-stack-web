@@ -34,7 +34,7 @@ const HeadMenus = () => {
     return (
         <nav className='text-sm leading-6 font-semibold
                 text-slate-700 dark:text-slate-200'>
-            <div className='flex space-x-8'>
+            <div className='flex items-center space-x-8'>
                 {
                     menus.map((m, i) => {
                         return (

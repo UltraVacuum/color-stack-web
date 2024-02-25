@@ -5,11 +5,12 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url)
     const pg = Number(searchParams.get('page')) // page
     const ps = 100 // page size
-
+    // // console.log('page', pg)
     const supabase = createClient()
     const { data, error } = await supabase.from('page_colors')
         .select('*')
-        .range(pg * ps + 1, pg * ps + ps)
+        .order('created_at', { ascending: false })
+        .range(ps * (pg - 1), ps * (pg - 1) + ps - 1)
 
     return Response.json({
         page: {
