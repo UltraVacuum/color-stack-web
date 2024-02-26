@@ -1,5 +1,5 @@
 import _ from 'lodash';
-
+import Link from 'next/link'
 import {
     Popover,
     PopoverContent,
@@ -71,17 +71,17 @@ export const ColorList = ({ colors }: any) => {
     );
 };
 
-export const ColorHead = ({ page }: { page: { page_title: string, page_url: string } }) => {
+export const ColorHead = ({ page }: { page: any }) => {
     return (
         <header id="header" className="relative z-20">
-            <div>
+            <Link href={`/explore/${page.id}`}>
                 <h1 className="text-sm leading-6 font-mono text-sky-500 truncate ...">
                     {page.page_title || "un titled"}
                 </h1>
                 <p className="text-sm  text-slate-900 truncate ...">
                     {page.page_url}
                 </p>
-            </div>
+            </Link>
             <p className="mt-2 text-base  text-slate-700"></p>
         </header>
     )
@@ -102,9 +102,9 @@ export const ColorCard = ({ page }: { page: any }) => {
     }
 
     return (
-        <>
+        <div className="card">
             <ColorHead page={page} />
             <ColorList colors={showColors} />
-        </>
+        </div>
     )
 }

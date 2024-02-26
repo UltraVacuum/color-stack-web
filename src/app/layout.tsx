@@ -30,7 +30,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
                 <ReactQueryProvider>
-                    <main className="min-h-screen flex flex-col items-center">
+                    <main className="min-h-screen">
                         {children}
                     </main>
                 </ReactQueryProvider>

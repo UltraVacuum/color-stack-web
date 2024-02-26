@@ -1,11 +1,11 @@
-import Navigation from "@/components/local/navigation";
+import { BasicLayout } from "@/components/local/page-layout";
+
 import ColorFlow from './components/color-flow';
 
 export default function Page() {
     return (
-        <>
-            <Navigation />
+        <BasicLayout>
             <ColorFlow />
-        </>
+        </BasicLayout>
     )
 }
