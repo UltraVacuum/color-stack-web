@@ -3,7 +3,7 @@ import { createClient } from "@/supabase/client";
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url)
     const pg = Number(searchParams.get('page')) // page
-    const ps = 100 // page size
+    const ps = 20 // page size
     // // console.log('page', pg)
     const supabase = createClient()
     const { data, error } = await supabase

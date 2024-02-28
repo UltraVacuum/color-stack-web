@@ -1,33 +1,4 @@
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover";
-import { ClipCopy } from '@/components/local/clip-copy'
-
-import './color-sets.css'
-
-const ColorItem = ({ color }: any) => {
-    const { hex } = color
-    return (
-        <Popover >
-            <PopoverTrigger>
-                <div className="lg:w-12 lg:h-12 w-6 h-6 color-item"
-                    style={{
-                        background: `${hex}`
-                    }}
-                >
-                </div>
-            </PopoverTrigger>
-            <PopoverContent>
-                <div className="font-mono font-medium text-xs text-sky-500 flex items-center justify-center">
-                    <span className="mr-4">HEX: {hex}</span>
-                    <ClipCopy text={hex} />
-                </div>
-            </PopoverContent>
-        </Popover>
-    )
-}
+import ColorItemBasic from '@/components/local/color-item';
 
 export default function ColorSets({ colorSets }: any) {
     return (
@@ -41,7 +12,7 @@ export default function ColorSets({ colorSets }: any) {
                 <div className="flex flex-wrap mx-auto">
                     {
                         colorSets.map((color: any, idx: number) => {
-                            return <ColorItem color={color} key={idx} />
+                            return <ColorItemBasic color={color} key={idx} />
                         })
                     }
                 </div>

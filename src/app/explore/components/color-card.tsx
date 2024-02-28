@@ -5,6 +5,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
+import { GetRevelJson } from "@/lib/utils";
 import { ClipCopy } from '@/components/local/clip-copy'
 
 const nestColors = (arr: any, len: number) => {
@@ -88,19 +89,7 @@ export const ColorHead = ({ page }: { page: any }) => {
 }
 
 export const ColorCard = ({ page }: { page: any }) => {
-    const presColor = page.pres_colors
-    let showColors = null
-    // todo: ref
-    if (
-        typeof presColor === 'object' &&
-        Array.isArray(presColor) &&
-        presColor !== null
-    ) {
-        showColors = presColor;
-    } else {
-        showColors = JSON.parse(presColor)
-    }
-
+    const showColors = GetRevelJson(page.pres_colors)
     return (
         <div className="card">
             <ColorHead page={page} />
