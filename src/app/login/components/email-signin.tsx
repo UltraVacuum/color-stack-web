@@ -80,6 +80,7 @@ export default function EmailSignIn() {
                 px-4 py-4 text-foreground mb-4">
                 Sign In
             </Button>
+            {/* todo:fix error */}
             <Button
                 variant="outline"
                 formAction={signUp}
