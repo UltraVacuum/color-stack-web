@@ -12,9 +12,5 @@ export async function GET(request: Request) {
         .order('created_at', { ascending: false })
         .range(ps * (pg - 1), ps * (pg - 1) + ps - 1)
 
-    return Response.json({
-        page: {
-            results: data
-        }
-    })
+    return Response.json(data)
 }

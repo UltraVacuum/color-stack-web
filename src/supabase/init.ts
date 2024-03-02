@@ -6,7 +6,7 @@ export const initClient = () =>
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
         {
             auth: {
-                autoRefreshToken: true,
+                autoRefreshToken: false,
                 persistSession: true,
                 detectSessionInUrl: true
             }

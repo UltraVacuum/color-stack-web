@@ -8,8 +8,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import './globals.css'
 
-import { ReactQueryProvider } from "./query-provider";
-
 const inter = Inter({
     subsets: ["latin"],
     variable: "--font-sans",
@@ -17,7 +15,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
     title: 'Color Stack',
-    description: 'Collect all page colors.',
+    description: 'Collect your favorite webpage colors.',
 }
 
 export default function RootLayout({
@@ -29,17 +27,15 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <ReactQueryProvider>
-                    <main className="min-h-screen">
-                        {children}
-                    </main>
-                </ReactQueryProvider>
+                <main className="">
+                    {children}
+                </main>
                 <Footer />
                 <Toaster />
                 <Analytics />
                 <SpeedInsights />
                 {
-                    gAnalysis ? (
+                    gAnalysis && (
                         <>
                             <Script
                                 id="g-analysis"
@@ -55,7 +51,7 @@ export default function RootLayout({
                                 `}
                             </Script>
                         </>
-                    ) : null
+                    )
                 }
             </body>
         </html>
