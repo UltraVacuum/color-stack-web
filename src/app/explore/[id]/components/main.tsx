@@ -37,7 +37,7 @@ export default function Main({ eid }: { eid: string }) {
     if (error) return < ErrorView />;
 
     const [item]: any = data
-    const prevColor = GetRevelJson(item.pres_colors)
+    const prevColor = GetRevelJson(item.page_colors)
 
     return (
         <ContentLayout>

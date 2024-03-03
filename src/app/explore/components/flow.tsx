@@ -1,14 +1,14 @@
 "use client";
-import { Loader, ServerCrash } from "lucide-react"
 import useSWRInfinite from "swr/infinite";
 import { fetcher } from '@/lib/utils';
 import { Button } from '@/components/ui/button'
 import { Skeleton } from "@/components/ui/skeleton";
+import { ErrorView } from "@/components/client/layout";
 import { ColorCard } from "./color-card";
 
 import "./color-flow.css";
 
-const PAGE_SIZE = 20
+const PAGE_SIZE = 15
 
 const Layout = ({ children }: {
     children: React.ReactNode
@@ -28,33 +28,16 @@ const LoadingView = () => {
                 sks.map((a, i) => {
                     return (
                         <div key={i} className="grid-item p-4 flex-col space-y-4">
-                            <Skeleton className="h-[150px] w-full rounded-xl" />
                             <div className="space-y-4">
                                 <Skeleton className="h-2 w-[150px]" />
                                 <Skeleton className="h-2 w-[120px]" />
-                                <Skeleton className="h-2 w-[100px]" />
-                                <Skeleton className="h-2 w-[70px]" />
                             </div>
+                            <Skeleton className="h-[150px] w-full rounded-sm" />
                         </div>
                     )
                 })
             }
         </div>
-    )
-}
-
-const ErrorView = () => {
-    return (
-        <Layout>
-            <div className="container py-20 h-full">
-                <div className="flex items-center justify-center">
-                    <ServerCrash className="text-red-500" size={48} />
-                    <span className="text-red-500 text-center text-4xl ml-4">
-                        Ops... Something is wrong...
-                    </span>
-                </div>
-            </div>
-        </Layout>
     )
 }
 
@@ -82,17 +65,24 @@ export default function ColorFlow() {
     const isRefreshing = isValidating && data && data.length === size;
     console.log(allRows, isLoading, isReachingEnd, isEmpty, isRefreshing, isLoadingMore)
 
-    if (isLoading) {
+    if (isLoading) return (
         <Layout>
             <LoadingView />
         </Layout>
-    }
+    )
 
-    if (error) return <ErrorView />
+
+    if (error) return (
+        <Layout>
+            <ErrorView>
+                ''
+            </ErrorView>
+        </Layout >
+    )
 
     return (
         <Layout>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-5 gap-2 mb-4">
                 {
                     allRows.map((page: any, idx: number) => {
                         return (
@@ -105,7 +95,7 @@ export default function ColorFlow() {
             </div>
             {isLoadingMore ?
                 <LoadingView /> :
-                <div className="flex align-center justify-center mt-4">
+                <div className="flex align-center justify-center">
                     <Button
                         onClick={() => {
                             setSize(size + 1)

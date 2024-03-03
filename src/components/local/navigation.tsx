@@ -8,7 +8,7 @@ const HeadMenus = () => {
         path: '/explore',
         title: 'Explore',
     }, {
-        path: '/datasets',
+        path: '/color-sets',
         title: 'Datasets',
     }, {
         path: '/about',
@@ -56,8 +56,6 @@ const HeadMenus = () => {
 }
 export default function Navigation() {
     // todo: popular\palyground\
-
-
     return (
         <div className='sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75'>
             <div className='container mx-auto'>

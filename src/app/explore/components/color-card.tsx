@@ -90,6 +90,7 @@ export const ColorHead = ({ page }: { page: any }) => {
 
 export const ColorCard = ({ page }: { page: any }) => {
     const showColors = GetRevelJson(page.pres_colors)
+
     return (
         <div className="card">
             <ColorHead page={page} />

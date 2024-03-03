@@ -15,7 +15,7 @@ export const ColorItemDetail = ({ color }: any) => {
                     border border-dotted rounded-sm overflow-hidden
                 "
                     style={{
-                        background: `${color.hex}`
+                        background: `${color.hex || color.color}`
                     }}
                 >
                 </div>

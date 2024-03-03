@@ -1,11 +1,10 @@
 import { BasicLayout } from "@/components/local/layout";
+import Flow from './components/flow'
 
-import ColorFlow from './components/flow';
-
-export default function Page() {
+export default async function Page() {
     return (
         <BasicLayout>
-            <ColorFlow />
+            <Flow />
         </BasicLayout>
     )
 }
