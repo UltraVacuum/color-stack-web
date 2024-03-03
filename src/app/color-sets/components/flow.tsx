@@ -18,7 +18,7 @@ const LoadingView = () => {
                     return (
                         <Skeleton
                             key={i}
-                            className="h-16 w-full"
+                            className="h-24 w-full"
                         />
                     )
                 })

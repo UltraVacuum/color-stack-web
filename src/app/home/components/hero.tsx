@@ -47,7 +47,7 @@ export default function Hero() {
         <div className='relative pt-16 pb-32 flex content-center items-center justify-center h-screen'>
             <Image
                 className='absolute top-0 left-0 bottom-0 right-0 w-full h-full'
-                src="/home/hero.png"
+                src="/home/hero@1x.png"
                 alt="backgrounds"
                 fill={true}
                 unoptimized={true}
@@ -55,7 +55,7 @@ export default function Hero() {
             />
             <div
                 className='w-full h-full absolute top-0 left-0 bottom-0 right-0 
-                opacity-50 bg-black'
+                opacity-30 bg-black'
             />
             <div className='container relative mx-auto'>
                 <div className='items-center flex flex-wrap'>
