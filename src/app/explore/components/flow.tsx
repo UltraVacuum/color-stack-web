@@ -75,7 +75,7 @@ export default function ColorFlow() {
     if (error) return (
         <Layout>
             <ErrorView>
-                ''
+                {error.message}
             </ErrorView>
         </Layout >
     )

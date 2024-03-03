@@ -34,7 +34,11 @@ export default function Main({ eid }: { eid: string }) {
     )
 
     if (isLoading) return <LoadingSkeleton />;
-    if (error) return < ErrorView />;
+    if (error) return (
+        <ErrorView>
+            {error.message}
+        </ErrorView>
+    )
 
     const [item]: any = data
     const prevColor = GetRevelJson(item.page_colors)

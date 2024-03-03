@@ -13,7 +13,9 @@ export const ContentLayout = ({ children }: {
     )
 }
 
-export const ErrorView = () => {
+export const ErrorView = ({ children }: {
+    children: React.ReactNode
+}) => {
     return (
         <ContentLayout>
             <div className="container py-20 h-full">
