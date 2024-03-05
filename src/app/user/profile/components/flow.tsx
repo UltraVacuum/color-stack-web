@@ -1,4 +1,5 @@
 "use client";
+
 import useSWRInfinite from "swr/infinite";
 import { fetcher } from '@/lib/utils';
 import { Button } from '@/components/ui/button'
@@ -14,7 +15,8 @@ const Layout = ({ children }: {
     children: React.ReactNode
 }) => {
     return (
-        <div className="container min-h-80 py-8">
+        <div className="container min-h-80">
+            <h1 className="px-8">My Collections</h1>
             {children}
         </div>
     )
@@ -28,12 +30,11 @@ const LoadingView = () => {
                 sks.map((a, i) => {
                     return (
                         <div key={i} className="grid-item p-4 flex-col space-y-4">
-                            <Skeleton className="h-2 w-[150px]" />
-                            <Skeleton className="h-[150px] w-full rounded-sm my-2" />
-                            <div className="flex items-center justify-between">
-                                <Skeleton className="h-2 w-[60px]" />
-                                <Skeleton className="h-2 w-[50px]" />
+                            <div className="space-y-4">
+                                <Skeleton className="h-2 w-[150px]" />
+                                <Skeleton className="h-2 w-[120px]" />
                             </div>
+                            <Skeleton className="h-[150px] w-full rounded-sm" />
                         </div>
                     )
                 })
@@ -42,7 +43,7 @@ const LoadingView = () => {
     )
 }
 
-export default function ColorFlow() {
+export default function Flow() {
     const {
         data,
         error,
@@ -53,7 +54,7 @@ export default function ColorFlow() {
         isLoading
     } = useSWRInfinite(
         (page) =>
-            `/api/explore?page_size=${PAGE_SIZE}&page=${page + 1}`,
+            `/api/user/collect?page_size=${PAGE_SIZE}&page=${page + 1}`,
         fetcher
     );
 
@@ -64,7 +65,7 @@ export default function ColorFlow() {
     const isReachingEnd =
         isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
     const isRefreshing = isValidating && data && data.length === size;
-    console.log(allRows, isLoading, isReachingEnd, isEmpty, isRefreshing, isLoadingMore)
+    // console.log(allRows, isLoading, isReachingEnd, isEmpty, isRefreshing, isLoadingMore)
 
     if (isLoading) return (
         <Layout>
@@ -94,17 +95,26 @@ export default function ColorFlow() {
                     })
                 }
             </div>
-            {isLoadingMore ?
-                <LoadingView /> :
-                <div className="flex align-center justify-center">
-                    <Button
-                        onClick={() => {
-                            setSize(size + 1)
-                        }}
-                        variant="outline">
-                        Load More
-                    </Button>
-                </div>
+            {
+                isReachingEnd ?
+                    <div className="flex align-center justify-center">
+                        <Button
+                            disabled
+                            variant="outline">
+                            No More
+                        </Button>
+                    </div> :
+                    isLoadingMore ?
+                        <LoadingView /> :
+                        <div className="flex align-center justify-center">
+                            <Button
+                                onClick={() => {
+                                    setSize(size + 1)
+                                }}
+                                variant="outline">
+                                Load More
+                            </Button>
+                        </div>
             }
         </Layout>
     );

@@ -10,10 +10,11 @@ import './color-item.css'
 export const ColorItemDetail = ({ color }: any) => {
     return (
         <Popover >
-            <PopoverTrigger>
-                <div className="lg:w-12 lg:h-12 w-6 h-6 color-item
-                    border border-dotted rounded-sm overflow-hidden
-                "
+            <PopoverTrigger
+                className="w-full h-full color-item"
+            >
+                <div className="w-full h-full color-item
+                    border border-dotted rounded-sm"
                     style={{
                         background: `${color.hex || color.color}`
                     }}

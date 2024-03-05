@@ -1,8 +1,5 @@
 import _ from 'lodash';
 import Link from 'next/link'
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-import { Clock4 } from 'lucide-react';
 import {
     Popover,
     PopoverContent,
@@ -10,8 +7,6 @@ import {
 } from "@/components/ui/popover";
 import { GetRevelJson } from "@/lib/utils";
 import { ClipCopy } from '@/components/local/clip-copy'
-
-dayjs.extend(relativeTime)
 
 const nestColors = (arr: any, len: number) => {
     const n = arr.length - len
@@ -30,11 +25,8 @@ export const ColorItem = (props: any) => {
     const { color: { color: rgb, count, hex, isFake } } = props;
     return (
         <Popover >
-            <PopoverTrigger
-                className="w-10 h-10"
-            >
-                <div className="w-full h-full border
-                     border-slate-300 border-dotted rounded-sm"
+            <PopoverTrigger>
+                <div className="w-8 h-8 border border-slate-300	border-dotted rounded-sm"
                     style={{ background: hex }}>
                 </div>
             </PopoverTrigger>
@@ -70,10 +62,12 @@ export const ColorItem = (props: any) => {
 export const ColorList = ({ colors }: any) => {
     const rc = nestColors(colors, 25)
     return (
-        <div className="grid grid-cols-5 gap-2">
-            {rc.map((color: any, index: any) => {
-                return <ColorItem color={color} key={index} />
-            })}
+        <div className="relative">
+            <div className="grid grid-cols-5 gap-2">
+                {rc.map((color: any, index: any) => {
+                    return <ColorItem color={color} key={index} />
+                })}
+            </div>
         </div>
     );
 };
@@ -85,7 +79,11 @@ export const ColorHead = ({ page }: { page: any }) => {
                 <h1 className="text-sm leading-6 font-mono text-sky-500 truncate ...">
                     {page.page_title || "un titled"}
                 </h1>
+                <p className="text-sm  text-slate-900 truncate ...">
+                    {page.page_url}
+                </p>
             </Link>
+            <p className="mt-2 text-base  text-slate-700"></p>
         </header>
     )
 }
@@ -94,28 +92,9 @@ export const ColorCard = ({ page }: { page: any }) => {
     const showColors = GetRevelJson(page.pres_colors)
 
     return (
-        <div className="card divide-y divide-zinc-400">
+        <div className="card">
             <ColorHead page={page} />
-            <div className="py-2">
-                <ColorList colors={showColors} />
-            </div>
-            {/* <div className="py-1 border-zinc-400" /> */}
-            <div className="flex items-center justify-between pt-2">
-                <div className="flex items-center text-xs">
-                    <div className="w-4 h-4 rounded-full"
-                        style={{
-                            background: `url(${page.user.avatar}) center / cover no-repeat`
-                        }}
-                    />
-                    <p className="text-xs mx-1 text-sky-500">{page.user.name}</p>
-                </div>
-                <div className="flex items-center text-xs">
-                    <Clock4 className='w-3 h-3 text-sky-500' />
-                    <span className="ml-1 text-sky-500">
-                        {dayjs(page.created_at).fromNow()}
-                    </span>
-                </div>
-            </div>
+            <ColorList colors={showColors} />
         </div>
     )
 }

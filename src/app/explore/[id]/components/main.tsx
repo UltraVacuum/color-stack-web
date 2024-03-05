@@ -2,6 +2,7 @@
 import useSWR from "swr";
 import dayjs from "dayjs";
 import Link from 'next/link';
+import Image from 'next/image';
 import relativeTime from "dayjs/plugin/relativeTime";
 import { fetcher, GetRevelJson } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -45,42 +46,52 @@ export default function Main({ eid }: { eid: string }) {
 
     return (
         <ContentLayout>
-
             <div className="head">
-                <div className="flex mb-2">
+                <div className="flex flex-col flex-wrap">
                     <p className="text-black">
-                        Page:
+                        page:
+                        <Link href={item.page_url} className="ml-2 text-sky-500">
+                            {item.page_title}
+                        </Link>
                     </p>
-                    <Link href={item.page_url} className="ml-2 text-sky-400">
-                        {item.page_title}
-                    </Link>
-                </div>
-                <div className="flex">
-                    <p className="mr-8">
-                        Collected:
-                        <span className="ml-2 text-sky-400">
-                            {dayjs(item.created_at).fromNow()}
-                        </span>
-                    </p>
-                    <p className="">
-                        Theme colors:
-                        <span className="ml-2 text-sky-400">
+                    <p className="text-black">
+                        colors:
+                        <span className="ml-2 text-sky-500">
                             {item.page_colors.length}
                         </span>
                     </p>
                 </div>
             </div>
-            <div className="flex flex-row flex-wrap mt-4">
+            <div className="flex flex-row flex-wrap my-8">
                 {
                     prevColor.map((c: any, idx: any): any => {
                         return (
-                            <div key={idx} className="flex-none m-1
-                                w-12 h-12" >
+                            <div
+                                key={idx}
+                                className="flex-none w-32 h-24 m-1" >
                                 <ColorItemDetail color={c} />
                             </div>
                         )
                     })
                 }
+            </div>
+            <div className="footer ">
+                <div className="flex items-center mb-2 space-x-4">
+                    <div className="flex items-center">
+                        <div className="w-8 h-8 rounded-full"
+                            style={{
+                                background: `url(${item.user.avatar}) center / cover no-repeat`
+                            }}
+                        />
+                        <p className="ml-2 text-sky-500">{item.user.name}</p>
+                    </div>
+                    <p className="">
+                        collected at:
+                        <span className="ml-2 text-sky-500">
+                            {dayjs(item.created_at).fromNow()}
+                        </span>
+                    </p>
+                </div>
             </div>
         </ContentLayout>
     )

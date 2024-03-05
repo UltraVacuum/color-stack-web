@@ -36,7 +36,9 @@ export default async function AuthButton() {
                 <DropdownMenuContent>
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>Profile</DropdownMenuItem>
+                    <DropdownMenuItem>
+                        <Link href="/user/profile">Profile</Link>
+                    </DropdownMenuItem>
                     <DropdownMenuItem>
                         <form action={signOut}>
                             <button className="rounded-md 
