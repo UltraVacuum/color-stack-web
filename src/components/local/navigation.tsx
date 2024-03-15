@@ -1,23 +1,62 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { Menu, Search, MoreVertical } from 'lucide-react';
 import { createClient } from "@/supabase/server";
 import AuthButton from '@/components/local/auth-btn';
 
+
+const menus = [{
+    path: '/explore',
+    title: 'Explore',
+}, {
+    path: '/color-sets',
+    title: 'Datasets',
+}, {
+    path: '/about',
+    title: 'About',
+}, {
+    path: 'https://chromewebstore.google.com/detail/fast-color-picker/odejgpnelfibbifobdffndebnbielcdl?hl=zh-CN&authuser=0&ref=color-stack',
+    title: 'Tools',
+    target: '_blank'
+}]
+
+const MobileNav = () => {
+    return (
+        <div className='flex items-center p-4 border-b
+            border-slate-900/10 lg:hidden dark:border-slate-50/[0.06]'>
+            <button
+                type='button'
+                className='text-slate-500 hover:text-slate-600 
+                    dark:text-slate-400 dark:hover:text-slate-300'
+            >
+                <Menu />
+            </button>
+            <ol className='ml-4 flex text-sm leading-6 whitespace-nowrap
+                min-w-0'>
+                {
+                    menus.map((m, i) => {
+                        return (
+                            <li
+                                className='flex items-center mr-1'
+                                key={i}
+                            >
+                                <Link
+                                    href={`${m.path}`}
+                                    target={`${m.target || ''}`}
+                                >
+                                    {`${m.title}`}
+                                </Link>
+                            </li>
+                        )
+                    })
+                }
+            </ol>
+        </div>
+    )
+}
+
 const HeadMenus = () => {
-    const menus = [{
-        path: '/explore',
-        title: 'Explore',
-    }, {
-        path: '/color-sets',
-        title: 'Datasets',
-    }, {
-        path: '/about',
-        title: 'About',
-    }, {
-        path: 'https://chromewebstore.google.com/detail/fast-color-picker/odejgpnelfibbifobdffndebnbielcdl?hl=zh-CN&authuser=0&ref=color-stack',
-        title: 'Tools',
-        target: '_blank'
-    }]
+
 
     const canInitSupabaseClient = () => {
         // This function is just for the interactive tutorial.
@@ -54,6 +93,8 @@ const HeadMenus = () => {
         </nav>
     )
 }
+
+
 export default function Navigation() {
     // todo: popular\palyground\
     return (
@@ -85,9 +126,13 @@ export default function Navigation() {
                             </Link>
                         </div>
 
-                        <div className='relative hidden lg:flex items-center ml-auto'>
+                        <div className='relative hidden lg:flex 
+                            items-center ml-auto'>
                             <HeadMenus />
-                            <div className='flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800'>
+
+                            <div className='flex items-center border-l
+                                border-slate-200 ml-6 pl-6
+                                dark:border-slate-800'>
                                 <label
                                     className='sr-only'
                                     id='headlessui-listbox-label-:Rpkcr6:'
@@ -112,7 +157,8 @@ export default function Navigation() {
                                 </button>
                                 <a
                                     href='/'
-                                    className='ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300'
+                                    className='ml-6 block text-slate-400 
+                                        hover:text-slate-500 dark:hover:text-slate-300'
                                 >
                                     <span className='sr-only'>Tailwind CSS on GitHub</span>
                                 </a>
@@ -120,36 +166,31 @@ export default function Navigation() {
                         </div>
                         <button
                             type='button'
-                            className='ml-auto text-slate-500 w-8 h-8 -my-1 flex items-center justify-center hover:text-slate-600 lg:hidden dark:text-slate-400 dark:hover:text-slate-300'
+                            className='ml-auto text-slate-500 
+                                w-8 h-8 -my-1 flex items-center 
+                                justify-center hover:text-slate-600 
+                                lg:hidden dark:text-slate-400 
+                                dark:hover:text-slate-300'
                         >
                             <span className='sr-only'>Search</span>
+                            <Search />
                         </button>
                         <div className='ml-2 -my-1 lg:hidden'>
                             <button
                                 type='button'
-                                className='text-slate-500 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
+                                className='text-slate-500 w-8 h-8 flex 
+                                    items-center justify-center 
+                                    hover:text-slate-600
+                                    dark:text-slate-400 
+                                    dark:hover:text-slate-300'
                             >
                                 <span className='sr-only'>Navigation</span>
+                                <MoreVertical />
                             </button>
                         </div>
                     </div>
                 </div>
-                <div className='flex items-center p-4 border-b border-slate-900/10 lg:hidden dark:border-slate-50/[0.06]'>
-                    <button
-                        type='button'
-                        className='text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
-                    >
-                        <span className='sr-only'>Navigation</span>
-                    </button>
-                    <ol className='ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0'>
-                        <li className='flex items-center'>
-                            Flexbox &amp; Grid
-                        </li>
-                        <li className='font-semibold text-slate-900 truncate dark:text-slate-200'>
-                            Grid Template Columns
-                        </li>
-                    </ol>
-                </div>
+                <MobileNav />
             </div>
         </div>
     )

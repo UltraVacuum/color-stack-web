@@ -25,7 +25,7 @@ const Layout = ({ children }: {
 const LoadingView = () => {
     const sks = new Array(10).fill(1).map((a, i) => i)
     return (
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid md:grid-cols-5 md:gap-2 grid-cols-1 mb-4">
             {
                 sks.map((a, i) => {
                     return (
@@ -84,7 +84,7 @@ export default function Flow() {
 
     return (
         <Layout>
-            <div className="grid grid-cols-5 gap-2 mb-4">
+            <div className="grid md:grid-cols-5 md:gap-2 grid-cols-1 mb-4">
                 {
                     allRows.map((page: any, idx: number) => {
                         return (

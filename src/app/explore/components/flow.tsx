@@ -23,7 +23,7 @@ const Layout = ({ children }: {
 const LoadingView = () => {
     const sks = new Array(10).fill(1).map((a, i) => i)
     return (
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid md:grid-cols-5 md:gap-2 grid-cols-1 mb-4">
             {
                 sks.map((a, i) => {
                     return (
@@ -64,7 +64,7 @@ export default function ColorFlow() {
     const isReachingEnd =
         isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
     const isRefreshing = isValidating && data && data.length === size;
-    console.log(allRows, isLoading, isReachingEnd, isEmpty, isRefreshing, isLoadingMore)
+    // console.log(allRows, isLoading, isReachingEnd, isEmpty, isRefreshing, isLoadingMore)
 
     if (isLoading) return (
         <Layout>
@@ -83,7 +83,7 @@ export default function ColorFlow() {
 
     return (
         <Layout>
-            <div className="grid grid-cols-5 gap-2 mb-4">
+            <div className="grid md:grid-cols-5 md:gap-2 grid-cols-1 mb-4">
                 {
                     allRows.map((page: any, idx: number) => {
                         return (
@@ -94,17 +94,26 @@ export default function ColorFlow() {
                     })
                 }
             </div>
-            {isLoadingMore ?
-                <LoadingView /> :
-                <div className="flex align-center justify-center">
-                    <Button
-                        onClick={() => {
-                            setSize(size + 1)
-                        }}
-                        variant="outline">
-                        Load More
-                    </Button>
-                </div>
+            {
+                isReachingEnd ?
+                    <div className="flex align-center justify-center">
+                        <Button
+                            disabled
+                            variant="outline">
+                            No More
+                        </Button>
+                    </div> :
+                    isLoadingMore ?
+                        <LoadingView /> :
+                        <div className="flex align-center justify-center">
+                            <Button
+                                onClick={() => {
+                                    setSize(size + 1)
+                                }}
+                                variant="outline">
+                                Load More
+                            </Button>
+                        </div>
             }
         </Layout>
     );

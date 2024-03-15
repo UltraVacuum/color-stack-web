@@ -33,26 +33,24 @@ export const ColorItem = (props: any) => {
             <PopoverContent>
                 {
                     isFake ?
-                        <div className="font-mono font-medium text-xs">
-                            <p>This color is blank</p>
-                            <span>Go and fill this colors!</span>
+                        <div className="px-4 py-2 font-mono font-medium text-xs">
+                            <p>blank spaces.</p>
                         </div> :
-                        <>
-                            <div className="font-mono font-medium text-xs leading-6
-                        text-sky-500 whitespace-nowrap flex items-center justify-between">
+                        <div className="font-mono font-medium text-xs text-sky-500 leading-6">
+                            <ClipCopy text={hex}>
                                 <span>HEX: {hex}</span>
-                                <ClipCopy text={hex} />
-                            </div>
-                            <div className="font-mono font-medium text-xs leading-6 
-                        text-sky-500 whitespace-nowrap flex items-center justify-between">
+                            </ClipCopy>
+                            <ClipCopy text={rgb}>
                                 <span>RGB: {rgb}</span>
-                                <ClipCopy text={rgb} />
-                            </div>
-                            <div className="font-mono text-xs leading-6 text-indigo-600 "
-                            >
-                                {count} elements counts in the page.
-                            </div>
-                        </>
+                            </ClipCopy>
+                            <p className="px-3 py-1.5 text-black">
+                                counts
+                                <span
+                                    className="text-sky-500 mx-1"
+                                >{count}</span>
+                                elements.
+                            </p>
+                        </div>
                 }
             </PopoverContent>
         </Popover>

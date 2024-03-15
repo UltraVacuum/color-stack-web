@@ -1,3 +1,5 @@
+'use client';
+import { ClipCopy } from '@/components/local/clip-copy';
 
 import "./color-card.css";
 
@@ -9,19 +11,20 @@ const hsvFormat = (color: any) => {
 export default function ColorCard({ color }: { color: any }) {
     return (
         <div
-            className="w-full h-24 border border-dotted px-4 py-2
+            className="
+                w-full h-24 
+                px-4 py-2
+                border border-dotted 
                 card-item
             "
             style={{
                 background: `${color.hex}`
             }}
         >
-            <p>
+            <ClipCopy text={color.hex}>
                 {color.hex}
-            </p>
-            <p>
                 {color.alpha}
-            </p>
+            </ClipCopy>
         </div>
     )
-}
+};

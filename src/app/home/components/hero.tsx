@@ -50,6 +50,7 @@ export default function Hero() {
                 src="/home/hero@1x.png"
                 alt="backgrounds"
                 fill={true}
+                priority
                 unoptimized={true}
                 style={{ objectFit: 'cover' }}
             />

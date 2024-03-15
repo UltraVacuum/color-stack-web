@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
     const gAnalysis = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning={true}>
             <body className={inter.className}>
                 {children}
                 <Footer />

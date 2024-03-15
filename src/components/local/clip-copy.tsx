@@ -1,14 +1,20 @@
-"use client"
-
-import { useState, useEffect } from 'react'
-import cx from 'classnames'
+"use client";
+import { useState, useEffect } from 'react';
+import cx from 'classnames';
 import copy from 'clipboard-copy';
-import { useToast } from "@/components/ui/use-toast"
-import { CopyIcon } from '@radix-ui/react-icons'
+import { useToast } from "@/components/ui/use-toast";
+import { Copy, CopyCheck } from 'lucide-react';
 
 import './clip-copy.css';
 
-export const ClipCopy = ({ text }: { text: string }) => {
+export const ClipCopy = ({
+    text,
+    children
+}: {
+    text: string,
+    children: React.ReactNode
+}) => {
+
     const [copied, setCopy] = useState(false);
     const { toast } = useToast()
 
@@ -28,18 +34,27 @@ export const ClipCopy = ({ text }: { text: string }) => {
         if (copied) {
             setTimeout(() => {
                 setCopy(false)
-            }, 1000)
+            }, 3000)
         }
     }, [copied])
 
     return (
         <div onClick={handleCopyClick}
-            className={cx("copy w-20 px-2 rounded-sm flex items-center", {
-                'text-green-500': copied,
-            })}
+            className={cx(
+                "copy-item relative px-4 py-2 cursor-copy",
+                {
+                    'text-green-500': copied,
+                },
+            )}
         >
-            <CopyIcon />
-            <span className="ml-2 w-8">{copied ? 'copied' : 'copy'}</span>
+            {children}
+            <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                {
+                    copied ?
+                        <CopyCheck className="w-4 h-4 text-green-500" /> :
+                        <Copy className="w-4 h-4" />
+                }
+            </div>
         </div>
     );
 };

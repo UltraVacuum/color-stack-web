@@ -29,9 +29,13 @@ export default async function AuthButton() {
         <div className="flex items-center gap-4">
             <DropdownMenu>
                 <DropdownMenuTrigger>
-                    <div className="w-8 h-8 rounded-full"
-                        style={{ background: `url(${user.user_metadata.avatar_url}) center / cover no-repeat` }}
-                    ></div>
+                    <div className="
+                        w-8 h-8 rounded-full bg-gray-400 
+                        bg-no-repeat bg-center bg-cover"
+                        style={{ backgroundImage: `url(${user.user_metadata.avatar_url})` }}
+                    >
+
+                    </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>

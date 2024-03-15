@@ -3,7 +3,9 @@ import ColorItemBasic from '@/components/local/color-item';
 export default function ColorSets({ colorSets }: any) {
     return (
         <>
-            <div className="z-10 max-w-5xl w-full items-center justify-between font-mono lg:flex">
+            <div className="z-10 max-w-5xl w-full 
+                items-center justify-between font-mono 
+                lg:flex">
                 <p className="flex w-full justify-center pb-6 pt-8 text-center">
                     Find color patterns in our Datasets.
                 </p>

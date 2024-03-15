@@ -2,12 +2,14 @@
 import useSWR from "swr";
 import dayjs from "dayjs";
 import Link from 'next/link';
-import Image from 'next/image';
 import relativeTime from "dayjs/plugin/relativeTime";
+import { Link as LinkIcon, Palette, Clock2 } from 'lucide-react';
 import { fetcher, GetRevelJson } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ContentLayout, ErrorView } from "@/components/client/layout";
 import { ColorItemDetail } from '@/components/local/color-item';
+
+import './main.css';
 
 dayjs.extend(relativeTime)
 
@@ -47,22 +49,44 @@ export default function Main({ eid }: { eid: string }) {
     return (
         <ContentLayout>
             <div className="head">
-                <div className="flex flex-col flex-wrap">
-                    <p className="text-black">
-                        page:
-                        <Link href={item.page_url} className="ml-2 text-sky-500">
-                            {item.page_title}
-                        </Link>
+                <div className="flex items-center flex-wrap">
+                    <LinkIcon className="w-4 h-4 mr-2 icon-color" />
+                    <Link
+                        href={item.page_url}
+                        target="_blank"
+                        className="text-sky-500"
+                    >
+                        {item.page_title}
+                    </Link>
+                </div>
+                <div className="flex items-center my-2 space-x-4">
+                    <div className="flex items-center">
+                        <div className="
+                            w-8 h-8 rounded-full
+                            bg-gray-500 bg-no-repeat 
+                            bg-center bg-cover
+                            "
+                            style={{
+                                backgroundImage: `url(${item.user.avatar})`
+                            }}
+                        />
+                        <p className="ml-2 text-sky-500">{item.user.name}</p>
+                    </div>
+                    <p className="flex items-center">
+                        <Clock2 className="w-4 h-4 mr-1 icon-color" />
+                        <span className="text-sky-500">
+                            {dayjs(item.created_at).fromNow()}
+                        </span>
                     </p>
-                    <p className="text-black">
-                        colors:
-                        <span className="ml-2 text-sky-500">
+                    <p className="flex items-center text-black">
+                        <Palette className="w-4 h-4 mr-1 icon-color" />
+                        <span className="text-sky-500">
                             {item.page_colors.length}
                         </span>
                     </p>
                 </div>
             </div>
-            <div className="flex flex-row flex-wrap my-8">
+            <div className="flex flex-row flex-wrap my-4">
                 {
                     prevColor.map((c: any, idx: any): any => {
                         return (
@@ -74,24 +98,6 @@ export default function Main({ eid }: { eid: string }) {
                         )
                     })
                 }
-            </div>
-            <div className="footer ">
-                <div className="flex items-center mb-2 space-x-4">
-                    <div className="flex items-center">
-                        <div className="w-8 h-8 rounded-full"
-                            style={{
-                                background: `url(${item.user.avatar}) center / cover no-repeat`
-                            }}
-                        />
-                        <p className="ml-2 text-sky-500">{item.user.name}</p>
-                    </div>
-                    <p className="">
-                        collected at:
-                        <span className="ml-2 text-sky-500">
-                            {dayjs(item.created_at).fromNow()}
-                        </span>
-                    </p>
-                </div>
             </div>
         </ContentLayout>
     )
