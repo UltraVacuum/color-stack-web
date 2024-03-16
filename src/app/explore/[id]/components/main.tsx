@@ -70,7 +70,6 @@ export default function Main({ eid }: { eid: string }) {
 
     // sort effect
     useEffect(() => {
-        console.log(sort, mode)
         const sc = sortColor(showColor, sort, mode)
         setShowColor(sc)
     }, [sort, mode])
