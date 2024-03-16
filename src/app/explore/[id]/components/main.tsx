@@ -97,6 +97,7 @@ export default function Main({ eid }: { eid: string }) {
                     <ToggleGroup
                         className="ml-2"
                         onValueChange={setSort}
+                        value={sort}
                         type="single">
                         {
                             sortFunc.map((s: any, i: any) => {
@@ -114,6 +115,7 @@ export default function Main({ eid }: { eid: string }) {
                     <ToggleGroup
                         className="ml-2"
                         onValueChange={setMode}
+                        value={mode}
                         type="single">
                         {
                             sortMode.map((s: any, i: any) => {
