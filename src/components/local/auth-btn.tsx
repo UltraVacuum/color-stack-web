@@ -9,6 +9,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import UserAvatar from './avatar'
 
 export default async function AuthButton() {
     const supabase = createClient();
@@ -29,13 +30,10 @@ export default async function AuthButton() {
         <div className="flex items-center gap-4">
             <DropdownMenu>
                 <DropdownMenuTrigger>
-                    <div className="
-                        w-8 h-8 rounded-full bg-gray-400 
-                        bg-no-repeat bg-center bg-cover"
-                        style={{ backgroundImage: `url(${user.user_metadata.avatar_url})` }}
-                    >
-
-                    </div>
+                    <UserAvatar user={{
+                        avatarUrl: user.user_metadata.avatar_url,
+                        userName: user.user_metadata.full_name
+                    }} />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>

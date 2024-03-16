@@ -11,8 +11,7 @@ export const ColorItemDetail = ({ color }: any) => {
     return (
         <Popover >
             <PopoverTrigger
-                className="w-full h-full color-item 
-                    border border-dotted rounded-sm"
+                className="w-full h-full color-item border rounded-sm"
                 style={{
                     background: `${color.hex || color.color}`
                 }}

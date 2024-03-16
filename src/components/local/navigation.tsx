@@ -1,9 +1,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, Search, MoreVertical } from 'lucide-react';
+import {
+    Menu,
+    Search,
+    MoreVertical
+} from 'lucide-react';
 import { createClient } from "@/supabase/server";
 import AuthButton from '@/components/local/auth-btn';
-
 
 const menus = [{
     path: '/explore',

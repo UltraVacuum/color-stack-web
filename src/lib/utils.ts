@@ -14,7 +14,7 @@ export async function fetcher<JSON = any>(
 }
 
 // page color preview color polyfill
-export function GetRevelJson(p: any) {
+export function revelJson(p: any) {
     // todo: ref
     if (
         typeof p === 'object' &&
