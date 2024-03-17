@@ -15,7 +15,7 @@ const reLoop = (arr: Array<any>, start: number) => {
 
 const ThemeBlock = ({ theme }: any) => {
     return (
-        <div className="flex-none w-40 h-8 flex items-center rounded-sm overflow-hidden">
+        <div className="flex-none flex items-center border rounded-sm overflow-hidden">
             {
                 theme.map((c: any, i: any) => {
                     return (
@@ -39,7 +39,7 @@ const LineBlock = ({ line }: any) => {
     const loopLine = reLoop(line, ls)
     const themes = chunk(loopLine, THEME_SIZE)
     return (
-        <div className="flex flex-nowrap space-x-2">
+        <div className="scroll-line flex flex-nowrap space-x-4">
             {
                 themes.map((t: any, ii: any) => {
                     return (
@@ -58,8 +58,8 @@ export default function DyHero({ colorSets }: any) {
     return (
         <div className="container w-full md:w-2/5"
         >
-            <div className="w-full rounded-2xl overflow-hidden dy-content md:-rotate-12">
-                <div className="scroller is-animating space-y-3">
+            <div className="w-full rounded-2xl overflow-hidden dy-content ">
+                <div className="is-animating space-y-4 md:-rotate-6">
                     {
                         lines.map((ln: any, i: any) => {
                             return (

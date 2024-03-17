@@ -34,8 +34,7 @@ export default async function Home() {
                 <DyHero colorSets={data} />
             </Hero>
             <Navigation />
-            <div className="flex min-h-screen flex-col
-                items-center justify-between lg:px-24 px-4">
+            <div className="min-h-screen md:px-24 px-8">
                 <ColorSets colorSets={data} />
                 <SubPanels />
             </div>

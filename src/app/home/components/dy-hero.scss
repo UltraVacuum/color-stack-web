@@ -11,23 +11,22 @@
     position: relative;
 }
 
-$scrollTime: 120s;
-@for $i from 1 through 24 {
-    .scroller.is-animating {
-        div:nth-child(#{$i}) {
-            animation: scroller-#{$i} $scrollTime linear infinite;
-        }
+@for $i from 1 through 16 {
+    $sTime: 40s + (($i % 7) * 10) - ($i % 3) * 5;
+
+    .is-animating .scroll-line:nth-child(#{$i}) {
+        animation: scroller-#{$i} #{$sTime} linear infinite;
     }
 
-    $t1: calc(-5% * (#{$i} - 1));
-    $t2: calc(-50% - (5% * #{$i}));
+    $t1: -1% * ($i - 1) - ($i % 7) * 3%;
+    $t2: -150% - 3% * ($i % 7);
 
     @keyframes scroller-#{$i} {
-        from {
-            transform: translate3d($t1, 0, 0);
+        0% {
+            transform: translateX($t1);
         }
-        to {
-            transform: translate3d($t2, 0, 0);
+        100% {
+            transform: translateX($t2);
         }
     }
 }

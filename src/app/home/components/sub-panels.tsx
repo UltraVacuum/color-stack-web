@@ -15,7 +15,8 @@ export default function SubPanels() {
         detail: 'Try to match colors with custom properties.'
     }]
     return (
-        <div className="mb-32 mt-8 grid grid-3 text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-3 lg:text-left">
+        <div className="my-16 px-24 grid grid-3 text-center 
+            md:w-full md:grid-cols-3">
             {
                 subMenus.map((m, i) => {
                     return (
@@ -27,7 +28,7 @@ export default function SubPanels() {
                             <h2 className={`mb-3 text-2xl font-semibold`}>
                                 {`${m.title} `}
                             </h2>
-                            <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                            <p className={`m-0 text-sm opacity-50`}>
                                 {`${m.detail}`}
                             </p>
                         </Link>
