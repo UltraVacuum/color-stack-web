@@ -18,7 +18,7 @@ const menus = [{
     path: '/about',
     title: 'About',
 }, {
-    path: 'https://chromewebstore.google.com/detail/fast-color-picker/odejgpnelfibbifobdffndebnbielcdl?hl=zh-CN&authuser=0&ref=color-stack',
+    path: process.env.EXTENSION_URL,
     title: 'Tools',
     target: '_blank'
 }]
