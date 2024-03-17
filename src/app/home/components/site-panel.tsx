@@ -35,8 +35,8 @@ export default function SitePanel({ collects }: any) {
         // console.log(pres_colors)
         const sc = pres_colors
             .filter(({ rgb }: any) => filterGray(rgb))
-            .filter(({ rgb }: any) => filterWhite(rgb))
-            .filter(({ rgb }: any) => filterBlack(rgb))
+        // .filter(({ rgb }: any) => filterWhite(rgb))
+        // .filter(({ rgb }: any) => filterBlack(rgb))
         return { ...c, pres_colors: sc }
     })
 
