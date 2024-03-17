@@ -3,6 +3,8 @@ import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import { Toaster } from "@/components/ui/toaster"
 import Footer from '@/components/local/footer'
+import SiteHead from '@/components/local/head'
+import { keywords, description } from '@/components/local/seo'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -15,7 +17,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
     title: 'Color Stack',
-    description: 'Collect your favorite webpage colors.',
+    keywords,
+    description,
 }
 
 export default function RootLayout({
