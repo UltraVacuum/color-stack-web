@@ -1,7 +1,8 @@
 import { chunk, slice, shuffle } from "lodash"
-import './dy-hero.css';
 
-const LINE_SIZE = 30
+import './dy-hero.scss';
+
+const LINE_SIZE = 14
 const THEME_SIZE = 5
 
 const genRdx = (n: number) => Math.floor(Math.random() * n)
@@ -55,9 +56,10 @@ export default function DyHero({ colorSets }: any) {
     const lines = new Array(LINE_SIZE).fill(1)
     const shLine = shuffle(colorSets)
     return (
-        <div className="dy-container w-1/3 h-3/4 rounded-3xl">
-            <div className="dy-content dy-rotate">
-                <div className="palettes-scroller is-animating space-y-2">
+        <div className="container w-full md:w-2/5"
+        >
+            <div className="w-full rounded-2xl overflow-hidden dy-content md:-rotate-12">
+                <div className="scroller is-animating space-y-3">
                     {
                         lines.map((ln: any, i: any) => {
                             return (

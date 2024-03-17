@@ -1,8 +1,11 @@
 .text-blueGray-200 {
-    --tw-text-opacity: 1;
-    color: rgba(255, 250, 250, .2);
+    color: #fff;
 }
 
 .fill-current {
     fill: currentColor;
+}
+
+.slogan {
+    font-variation-settings: 'wght'700;
 }
