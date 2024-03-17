@@ -19,6 +19,7 @@ const PanelItem = ({ panel }: any) => {
                 panel.pres_colors.map((c: any, i: any) => {
                     return (
                         <ColorItemDetail
+                            key={i}
                             className="flex-none w-10 h-24 "
                             color={c} />
                     )
@@ -40,7 +41,7 @@ export default function SitePanel({ collects }: any) {
     })
 
     return (
-        <>
+        <div>
             {
                 panels.map((s: any, i: any) => {
                     return (
@@ -73,6 +74,6 @@ export default function SitePanel({ collects }: any) {
                     )
                 })
             }
-        </>
+        </div>
     )
 }
