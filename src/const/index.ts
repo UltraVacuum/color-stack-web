@@ -5,3 +5,6 @@ export const SORT_BY_HUE = "hue";
 export const SORT_BY_LUM = "luminosity";
 export const MODE_LIGHT = "light";
 export const MODE_DARK = "dark";
+export const FILTER_WHITE = 'white';
+export const FILTER_GREY = 'grey';
+export const FILTER_BLACK = 'black';

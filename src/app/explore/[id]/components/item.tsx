@@ -5,10 +5,7 @@ import { ColorItemDetail } from '@/components/local/color-item';
 export default function ColorItem({ color }: { color: any }) {
     return (
         <div>
-            <div
-                className="h-24 m-1" >
-                <ColorItemDetail color={color} />
-            </div>
+            <ColorItemDetail color={color} className="h-24 m-1" />
             <div className="flex justify-between text-zinc-600 text-sm px-4">
                 <p className="">
                     {color.hex}

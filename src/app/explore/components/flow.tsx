@@ -23,13 +23,13 @@ const Layout = ({ children }: {
 const LoadingView = () => {
     const sks = new Array(10).fill(1).map((a, i) => i)
     return (
-        <div className="grid md:grid-cols-5 md:gap-2 grid-cols-1 mb-4">
+        <div className="grid md:grid-cols-4 md:gap-4 grid-cols-1 mb-4">
             {
                 sks.map((a, i) => {
                     return (
                         <div key={i} className="grid-item p-4 flex-col space-y-4">
                             <Skeleton className="h-2 w-[150px]" />
-                            <Skeleton className="h-[150px] w-full rounded-sm my-2" />
+                            <Skeleton className="h-24 w-full rounded-sm my-2" />
                             <div className="flex items-center justify-between">
                                 <Skeleton className="h-2 w-[60px]" />
                                 <Skeleton className="h-2 w-[50px]" />
@@ -72,7 +72,6 @@ export default function ColorFlow() {
         </Layout>
     )
 
-
     if (error) return (
         <Layout>
             <ErrorView>
@@ -83,11 +82,11 @@ export default function ColorFlow() {
 
     return (
         <Layout>
-            <div className="grid md:grid-cols-5 md:gap-2 grid-cols-1 mb-4">
+            <div className="grid md:grid-cols-4 md:gap-4 grid-cols-1 mb-4">
                 {
                     allRows.map((page: any, idx: number) => {
                         return (
-                            <div className="grid-item p-4" key={idx}>
+                            <div className="grid-item" key={idx}>
                                 <ColorCard page={page} />
                             </div>
                         )

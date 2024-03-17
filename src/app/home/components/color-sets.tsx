@@ -1,13 +1,15 @@
 import ColorItemBasic from '@/components/local/color-item';
+import {
+    ContentLayout,
+    ErrorView
+} from "@/components/client/layout";
 
 export default function ColorSets({ colorSets }: any) {
     return (
-        <>
-            <div className="z-10 w-full text-center
-                md:flex items-center font-mono 
-                ">
-                <p className="w-full pb-6 pt-8 ">
-                    Find color patterns in our Datasets.
+        <ContentLayout>
+            <div className="z-10 w-full mb-8">
+                <p className="text-4xl text-center font-mono font-extrabold">
+                    Find patterns in Datasets.
                 </p>
             </div>
             <div className="flex flex-wrap mx-auto">
@@ -17,6 +19,6 @@ export default function ColorSets({ colorSets }: any) {
                     })
                 }
             </div>
-        </>
+        </ContentLayout>
     )
 }

@@ -5,13 +5,18 @@ import {
 } from "@/components/ui/popover";
 
 import { ClipCopy } from './clip-copy'
+import { cn } from "@/lib/utils"
+
 import './color-item.css'
 
-export const ColorItemDetail = ({ color }: any) => {
+export const ColorItemDetail = ({ className, color }: any) => {
     return (
-        <Popover >
+        <Popover>
             <PopoverTrigger
-                className="w-full h-full color-item border rounded-sm"
+                className={cn(
+                    "w-full h-full color-item",
+                    className
+                )}
                 style={{
                     background: `${color.hex || color.color}`
                 }}

@@ -1,12 +1,13 @@
-import { createClient } from "@/supabase/client";
+import { createClient } from "@/supabase/server";
 
 import Navigation from "@/components/local/navigation";
 import { ErrorView } from "@/components/local/layout";
+
 import Hero from './components/hero'
 import DyHero from './components/dy-hero';
-
 import SubPanels from './components/sub-panels';
-import ColorSets from './components/color-sets'
+import ColorSets from './components/color-sets';
+import ThemePanels from './components/theme-panels';
 
 const getData = async () => {
     const pg = Math.round(Math.random() * 10 + 1) // page
@@ -34,6 +35,7 @@ export default async function Home() {
                 <DyHero colorSets={data} />
             </Hero>
             <Navigation />
+            <ThemePanels />
             <div className="min-h-screen md:px-24 px-8">
                 <ColorSets colorSets={data} />
                 <SubPanels />
