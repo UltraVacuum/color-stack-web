@@ -5,7 +5,7 @@ import ColorFlow from './components/flow';
 export default function Page() {
     return (
         <BasicLayout>
-            <ColorFlow />
+            <ColorFlow api={`/api/explore`} />
         </BasicLayout>
     )
 }

@@ -15,15 +15,17 @@ export async function GET(request: Request) {
     })
     const { data, error } = await supabase
         .from('page_colors')
-        // .select(`
-        //     *,
-        //     collects:page_colors (
-        //         *
-        //     )
-        // `)
-        .select('*')
+        .select(
+            `*, 
+                user:users(
+                    id,
+                    avatar:user_meta->avatar_url,
+                    name:user_meta->full_name
+                )
+            )`
+        )
         .eq('user_id', user.id)
-        .order('created_at', { ascending: false })
+        .order('updated_at', { ascending: false })
         .range(ps * (pg - 1), ps * (pg - 1) + ps - 1)
 
     return Response.json(data)

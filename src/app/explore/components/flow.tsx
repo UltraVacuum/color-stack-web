@@ -20,7 +20,7 @@ const Layout = ({ children }: {
     )
 }
 
-const LoadingView = () => {
+export const LoadingView = () => {
     const sks = new Array(10).fill(1).map((a, i) => i)
     return (
         <div className="grid md:grid-cols-4 md:gap-4 grid-cols-1 mb-4">
@@ -42,7 +42,7 @@ const LoadingView = () => {
     )
 }
 
-export default function ColorFlow() {
+export default function ColorFlow({ api }: any) {
     const {
         data,
         error,
@@ -53,7 +53,7 @@ export default function ColorFlow() {
         isLoading
     } = useSWRInfinite(
         (page) =>
-            `/api/explore?page_size=${PAGE_SIZE}&page=${page + 1}`,
+            `${api}?page_size=${PAGE_SIZE}&page=${page + 1}`,
         fetcher
     );
 

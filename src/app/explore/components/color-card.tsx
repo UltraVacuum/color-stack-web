@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import Link from 'next/link'
+import { Clock4 } from 'lucide-react';
 
 import dayjs from "@/lib/time";
 import { revelJson } from "@/lib/utils";
@@ -8,25 +9,10 @@ import {
     filterWhite,
     filterBlack
 } from "@/lib/color-filter"
-import { Clock4 } from 'lucide-react';
 import UserAvatar from '@/components/local/avatar'
 import { ColorItemDetail } from '@/components/local/color-item';
 
 import './color-card.scss';
-
-const nestColors = (arr: any, len: number) => {
-    const n = arr.length - len
-    if (n >= 0) return _.slice(arr, 0, len)
-    const fillColor = {
-        hex: '#FFFFFF',
-        color: 'rgb(255,255,255)',
-        rgb: [255, 255, 255],
-        count: 0,
-        isFake: 1,
-    }
-    const fills = _.fill(new Array(Math.abs(n)), fillColor)
-    return _.concat(arr, fills)
-}
 
 export const ColorList = ({ colors }: any) => {
     const fc = colors // filter color
