@@ -244,6 +244,9 @@ export default function Main({ eid }: { eid: string }) {
                             {pageData.page_colors.length - showColor.length}
                         </span>
                     </p>
+                    <p className="flex-none italic text-slate-500">
+                        if all the colors are filtered, you can slide the threshold to get the perfect colors.
+                    </p>
                 </div>
                 <div className="grid md:grid-cols-4 grid-cols-2 gap-2">
                     {
