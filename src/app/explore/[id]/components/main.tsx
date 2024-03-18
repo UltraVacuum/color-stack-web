@@ -49,6 +49,29 @@ import Loading from './loading'
 
 import './main.css';
 
+const THRESHOLD_MIN = 0
+const THRESHOLD_MAX = 125
+
+type FILTERS = 'white' | 'black' | 'grey'
+
+type THRESHOLD = {
+    [FILTER_WHITE]: number,
+    [FILTER_BLACK]: number,
+    [FILTER_GREY]: number
+}
+
+const filterFunc = {
+    [FILTER_WHITE]: filterWhite,
+    [FILTER_BLACK]: filterBlack,
+    [FILTER_GREY]: filterBlack
+}
+
+const initThreshold = {
+    [FILTER_WHITE]: THRESHOLD_MAX,
+    [FILTER_BLACK]: THRESHOLD_MAX,
+    [FILTER_GREY]: THRESHOLD_MAX
+}
+
 export default function Main({ eid }: { eid: string }) {
 
     const [sort, setSort] = useState(SORT_BY_RGB);
@@ -56,7 +79,8 @@ export default function Main({ eid }: { eid: string }) {
     const [showColor, setShowColor] = useState([]);
     const [pageData, setPageData] = useState<any>(null);
     const [filter, setFilter] = useState<Array<string>>([]);
-    const [threshold, setThreshold] = useState(0);
+
+    const [threshold, setThreshold] = useState<THRESHOLD>(initThreshold);
 
     const sortFunc = [
         SORT_BY_RGB,
@@ -67,16 +91,26 @@ export default function Main({ eid }: { eid: string }) {
     ]
 
     const sortMode = [MODE_LIGHT, MODE_DARK]
-    const filterMode = [FILTER_BLACK, FILTER_WHITE, FILTER_GREY]
+    const filterMode: Array<FILTERS> = [FILTER_BLACK, FILTER_WHITE, FILTER_GREY]
 
-    const minusThreshold = (e: any) => {
-        if (threshold > 0)
-            setThreshold(threshold - 1)
+    const minusThreshold = (t: FILTERS) => {
+        const v = threshold[t]
+        if (v > THRESHOLD_MIN) {
+            setThreshold({
+                ...threshold,
+                [t]: v - 1
+            })
+        }
     }
 
-    const addThreshold = (e: any) => {
-        if (threshold < 255)
-            setThreshold(threshold + 1)
+    const addThreshold = (t: FILTERS) => {
+        const v = threshold[t]
+        if (v < THRESHOLD_MAX) {
+            setThreshold({
+                ...threshold,
+                [t]: v + 1
+            })
+        }
     }
 
     const { data, error, isLoading } = useSWR(
@@ -105,24 +139,16 @@ export default function Main({ eid }: { eid: string }) {
     // filter effect
     useEffect(() => {
         if (!pageData) return
-
         let sc = pageData.page_colors
-
-        if (filter.indexOf(FILTER_BLACK) > -1) {
-            sc = sc
-                .filter(({ rgb }: any) => filterWhite(rgb, threshold))
+        for (let k of filterMode) {
+            console.log(filter, 'filter', k)
+            if (filter.indexOf(k) > -1) {
+                const fn = filterFunc[k]
+                const t = threshold[k]
+                sc = sc.filter(({ rgb }: any) => fn(rgb, t))
+            }
         }
-        if (filter.indexOf(FILTER_WHITE) > -1) {
-            sc = sc
-                .filter(({ rgb }: any) => filterBlack(rgb, threshold))
-        }
-        if (filter.indexOf(FILTER_GREY) > -1) {
-            sc = sc
-                .filter(({ rgb }: any) => filterGray(rgb, threshold))
-        }
-
         setShowColor(sc)
-
     }, [pageData, filter, threshold])
 
     if (isLoading || !pageData) return (
@@ -143,10 +169,9 @@ export default function Main({ eid }: { eid: string }) {
         <ContentLayout>
             <PageHead item={pageData} />
             <div className="my-8">
-                <div className="flex items-center px-2 mb-2">
+                <div className="flex items-center px-2 mb-2 space-x-2">
                     <span className="flex-none w-18">sort by</span>
                     <ToggleGroup
-                        className="ml-2"
                         onValueChange={setSort}
                         value={sort}
                         type="single">
@@ -164,7 +189,6 @@ export default function Main({ eid }: { eid: string }) {
                         }
                     </ToggleGroup>
                     <ToggleGroup
-                        className="ml-2"
                         onValueChange={setMode}
                         value={mode}
                         type="single">
@@ -182,54 +206,69 @@ export default function Main({ eid }: { eid: string }) {
                         }
                     </ToggleGroup>
                 </div>
-                <div className="flex items-center px-2 mb-2">
+                <div className="flex items-center px-2 mb-2 space-x-2">
                     <span className="flex-none w-18">filter by</span>
                     <ToggleGroup
-                        className="ml-2"
-                        onValueChange={(v) => {
-                            // console.log(v)
+                        className="flex flex-col w-full"
+                        onValueChange={(v: any) => {
+                            console.log(v)
                             setFilter(v)
                         }}
                         value={filter}
-                        type="multiple">
+                        type="multiple"
+                        orientation='vertical'
+                    >
                         {
-                            filterMode.map((s: any, i: any) => {
+                            filterMode.map((s: FILTERS, i: number) => {
                                 return (
-                                    <ToggleGroupItem
+                                    <div
                                         key={i}
-                                        value={s}
-                                        aria-label={`filter by ${s}`}>
-                                        {s}
-                                    </ToggleGroupItem>
+                                        className="w-full flex flex-1 items-center"
+                                    >
+                                        <ToggleGroupItem
+                                            value={s}
+                                            className="w-24"
+                                            aria-label={`filter by ${s}`}>
+                                            {s}
+                                        </ToggleGroupItem>
+                                        <p className="flex-none w-60 text-black mx-2">
+                                            current threshold:
+                                            <span className="text-green-500 text-bold ml-2">
+                                                {threshold[s]}
+                                            </span>
+                                        </p>
+                                        <div className="flex-1 flex items-center space-x-2">
+                                            <span>{THRESHOLD_MIN}</span>
+                                            <MinusCircle
+                                                className="cursor-pointer"
+                                                onClick={() => {
+                                                    minusThreshold(s)
+                                                }} />
+                                            <Slider
+                                                defaultValue={[threshold[s]]}
+                                                value={[threshold[s]]}
+                                                max={THRESHOLD_MAX}
+                                                step={5}
+                                                onValueChange={([v]) => {
+                                                    setThreshold({
+                                                        ...threshold,
+                                                        [s]: v
+                                                    })
+                                                }}
+                                            />
+                                            <PlusCircle
+                                                className="cursor-pointer"
+                                                onClick={() => {
+                                                    addThreshold(s)
+                                                }} />
+                                            <span>{THRESHOLD_MAX}</span>
+                                        </div>
+                                    </div>
                                 )
                             })
                         }
                     </ToggleGroup>
-                    <p className="flex-none w-60 text-black mx-2">
-                        current threshold:
-                        <span className="text-green-500 text-bold ml-2">
-                            {threshold}
-                        </span>
-                    </p>
-                    <div className="flex-1 flex items-center space-x-2">
-                        <span>0</span>
-                        <MinusCircle
-                            className="cursor-pointer"
-                            onClick={minusThreshold} />
-                        <Slider
-                            defaultValue={[threshold]}
-                            value={[threshold]}
-                            max={255}
-                            step={5}
-                            onValueChange={([v]) => {
-                                setThreshold(v)
-                            }}
-                        />
-                        <PlusCircle
-                            className="cursor-pointer"
-                            onClick={addThreshold} />
-                        <span>255</span>
-                    </div>
+
                 </div>
                 <div className="flex items-center px-2 mb-2 space-x-4">
                     <p className="flex-none">
