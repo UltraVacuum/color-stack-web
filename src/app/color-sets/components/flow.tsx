@@ -3,7 +3,10 @@ import useSWRInfinite from "swr/infinite";
 import { fetcher } from '@/lib/utils';
 import { Button } from '@/components/ui/button'
 import { Skeleton } from "@/components/ui/skeleton";
-import { ContentLayout, ErrorView } from "@/components/client/layout";
+import {
+    ContentLayout,
+    ErrorView
+} from "@/components/client/layout";
 import ColorCard from './color-card'
 
 const PAGE_SIZE = 30
@@ -50,14 +53,13 @@ export default function Flow() {
     const isReachingEnd =
         isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
     const isRefreshing = isValidating && data && data.length === size;
-    // console.log(allRows, isLoading, isReachingEnd, isEmpty, isRefreshing, isLoadingMore)
-
-    // const { data, error } = await getData()
 
     if (error) return (
-        <ErrorView>
-            {error.message}
-        </ErrorView>
+        <ContentLayout>
+            <ErrorView>
+                {error.message}
+            </ErrorView>
+        </ContentLayout>
     )
 
     return (
