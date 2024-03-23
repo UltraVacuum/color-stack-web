@@ -7,7 +7,7 @@ type Props = {
     params: { id: string }
 }
 
-export async function fetchMata(id: string | number) {
+async function fetchMata(id: string | number) {
     const supabase = createClient()
     return await supabase
         .from('page_colors')
