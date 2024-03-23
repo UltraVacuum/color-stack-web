@@ -1,4 +1,4 @@
-import { createClient } from "@/supabase/client";
+import { createClient } from "@/supabase/server";
 
 export async function GET(
     request: Request,
@@ -14,9 +14,6 @@ export async function GET(
                 name:user_meta->full_name
                 )
             )`)
-        // .eq('page_colors.user_id', 'auth.users.id')
-        // .select('*, auth.users(user_id)')
-        // .select('*')
         .eq('id', params.id)
 
     return Response.json(data)

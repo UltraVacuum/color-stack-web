@@ -3,7 +3,7 @@ import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import { Toaster } from "@/components/ui/toaster"
 import Footer from '@/components/local/footer'
-import SiteHead from '@/components/local/head'
+import { SeoMeta } from '@/components/local/seo'
 import { keywords, description } from '@/components/local/seo'
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -15,11 +15,7 @@ const inter = Inter({
     variable: "--font-sans",
 })
 
-export const metadata: Metadata = {
-    title: 'Color Stack',
-    keywords,
-    description,
-}
+export const metadata: Metadata = SeoMeta
 
 export default function RootLayout({
     children,

@@ -60,7 +60,6 @@ const MobileNav = () => {
 
 const HeadMenus = () => {
 
-
     const canInitSupabaseClient = () => {
         // This function is just for the interactive tutorial.
         // Feel free to remove it once you have Supabase connected.
@@ -132,7 +131,6 @@ export default function Navigation() {
                         <div className='relative hidden lg:flex 
                             items-center ml-auto'>
                             <HeadMenus />
-
                             <div className='flex items-center border-l
                                 border-slate-200 ml-6 pl-6
                                 dark:border-slate-800'>
@@ -163,7 +161,7 @@ export default function Navigation() {
                                     className='ml-6 block text-slate-400 
                                         hover:text-slate-500 dark:hover:text-slate-300'
                                 >
-                                    <span className='sr-only'>Tailwind CSS on GitHub</span>
+                                    <span className='sr-only'></span>
                                 </a>
                             </div>
                         </div>

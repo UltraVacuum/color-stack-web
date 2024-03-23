@@ -30,16 +30,18 @@ export default async function Home() {
     )
 
     return (
-        <div className="relative">
-            <Hero>
-                <DyHero colorSets={data} />
-            </Hero>
-            <Navigation />
-            <ThemePanels />
-            <div className="min-h-screen md:px-24 px-8">
-                <ColorSets colorSets={data} />
-                <SubPanels />
+        <>
+            <div className="relative">
+                <Hero>
+                    <DyHero colorSets={data} />
+                </Hero>
+                <Navigation />
+                <ThemePanels />
+                <div className="min-h-screen md:px-24 px-8">
+                    <ColorSets colorSets={data} />
+                    <SubPanels />
+                </div>
             </div>
-        </div>
+        </>
     )
 }

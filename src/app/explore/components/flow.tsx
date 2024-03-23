@@ -8,7 +8,7 @@ import { ColorCard } from "./color-card";
 
 import "./color-flow.css";
 
-const PAGE_SIZE = 15
+const PAGE_SIZE = 16
 
 const Layout = ({ children }: {
     children: React.ReactNode

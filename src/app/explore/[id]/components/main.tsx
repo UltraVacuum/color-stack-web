@@ -141,7 +141,7 @@ export default function Main({ eid }: { eid: string }) {
         if (!pageData) return
         let sc = pageData.page_colors
         for (let k of filterMode) {
-            console.log(filter, 'filter', k)
+            // console.log(filter, 'filter', k)
             if (filter.indexOf(k) > -1) {
                 const fn = filterFunc[k]
                 const t = threshold[k]
@@ -211,7 +211,7 @@ export default function Main({ eid }: { eid: string }) {
                     <ToggleGroup
                         className="flex flex-col w-full"
                         onValueChange={(v: any) => {
-                            console.log(v)
+                            // console.log(v)
                             setFilter(v)
                         }}
                         value={filter}
