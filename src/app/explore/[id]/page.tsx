@@ -5,6 +5,7 @@ import Main from './components/main';
 
 type Props = {
     params: { id: string }
+    searchParams: { [key: string]: string | string[] | undefined }
 }
 
 async function fetchMata(id: string | number) {
@@ -22,7 +23,7 @@ async function fetchMata(id: string | number) {
 }
 
 export async function generateMetadata(
-    { params }: Props,
+    { params, searchParams }: Props,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     // read route params
