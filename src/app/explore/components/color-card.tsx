@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import Link from 'next/link'
 import { Clock4 } from 'lucide-react';
-
 import dayjs from "@/lib/time";
 import { revelJson } from "@/lib/utils";
 import {
@@ -10,18 +9,24 @@ import {
     filterBlack
 } from "@/lib/color-filter"
 import UserAvatar from '@/components/local/avatar'
-import { ColorItemDetail } from '@/components/local/color-item';
+import {
+    ColorItemDetail
+} from '@/components/local/color-item';
 
 import './color-card.scss';
 
 export const ColorList = ({ colors }: any) => {
     const fc = colors // filter color
-        .filter(({ rgb }: any) => filterGray(rgb))
-        .filter(({ rgb }: any) => filterWhite(rgb))
         .filter(({ rgb }: any) => filterBlack(rgb))
+        .filter(({ rgb }: any) => filterWhite(rgb))
+        .filter(({ rgb }: any) => filterGray(rgb))
 
     // const sc = nestColors(fc, 15) // show color
-    const sc = _.slice(fc, 0, 10) // show color
+    // show colors
+    const FILTER_SIZE = 10
+    const sc = fc.length === 0 ?
+        _.slice(colors, 0, FILTER_SIZE) :
+        _.slice(fc, 0, FILTER_SIZE)
 
     return (
         <div className="flex flex-wrap">

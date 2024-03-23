@@ -1,6 +1,6 @@
 // true: filter
 // false: not in filter range
-const FILTER_THRESHOLD = 90
+const FILTER_THRESHOLD = 255 / 2.5
 export function filterGray(rgb: Array<number>,
     threshold = FILTER_THRESHOLD) {
     for (let x of [[0, 1], [1, 2], [2, 0]]) {

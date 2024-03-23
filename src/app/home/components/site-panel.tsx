@@ -1,4 +1,5 @@
 import Link from "next/link";
+import _ from 'lodash'
 import {
     AppWindow,
     Palette,
@@ -14,7 +15,7 @@ import dayjs from "@/lib/time";
 
 const PanelItem = ({ panel }: any) => {
     return (
-        <div className="panel flex flex-wrap items-center">
+        <div className="panel flex flex-1 flex-wrap items-center">
             {
                 panel.pres_colors.map((c: any, i: any) => {
                     return (
@@ -31,14 +32,14 @@ const PanelItem = ({ panel }: any) => {
 
 export default function SitePanel({ collects }: any) {
     const panels = collects.map((c: any, i: any) => {
-        const { pres_colors } = c
-        // console.log(pres_colors)
-        const sc = pres_colors
+        const { pres_colors: colors } = c
+        const fc = colors
+            .filter(({ rgb }: any) => filterBlack(rgb))
             .filter(({ rgb }: any) => filterGray(rgb))
-        // .filter(({ rgb }: any) => filterWhite(rgb))
-        // .filter(({ rgb }: any) => filterBlack(rgb))
-        return { ...c, pres_colors: sc }
-    })
+            .filter(({ rgb }: any) => filterWhite(rgb))
+        if (fc.length === 0) return null
+        return { ...c, pres_colors: fc }
+    }).filter((c: any) => !!c)
 
     return (
         <div>
@@ -52,23 +53,25 @@ export default function SitePanel({ collects }: any) {
                             <PanelItem panel={s} />
                             <Link
                                 href={`/explore/${s.id}`}
-                                className="my-2"
+                                className="flex items-center my-2"
                             >
-                                <div className="flex items-center space-x-2 mt-2">
-                                    <AppWindow className="w-5 h-5 text-sky-500" />
-                                    <span>{s.page_title}</span>
-                                    <CalendarCheck className="w-5 h-5 text-sky-500" />
-                                    <span>
+                                <p className="mt-2">
+                                    <span className="mr-2">
+                                        <AppWindow className="inline-block align-middle mr-2 w-5 h-5 text-sky-500" />
+                                        {s.page_title}
+                                    </span>
+                                    <span className="mr-2">
+                                        <CalendarCheck className="inline-block align-middle mr-2 w-5 h-5 text-sky-500" />
                                         {dayjs(s.updated_at).fromNow()}
                                     </span>
                                     <UserAvatar
-                                        className="w-5 h-5"
+                                        className="inline-block align-middle w-5 h-5"
                                         user={{
                                             avatarUrl: s.user.avatar,
                                             userName: s.user.name
                                         }}
                                     />
-                                </div>
+                                </p>
                             </Link>
                         </div>
                     )
