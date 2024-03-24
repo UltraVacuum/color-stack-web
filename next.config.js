@@ -1,4 +1,4 @@
-const withMDX = require('@next/mdx')()
+// const withMDX = require('@next/mdx')()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,10 +6,10 @@ const nextConfig = {
     //     staticFolder: '/static',
     // },
     // assetPrefix: '',
-    pageExtensions: ['mdx', 'ts', 'tsx'],
+    pageExtensions: ['ts', 'tsx'],
     basePath: '',
     // output: 'export',
     // distDir: 'build',
 }
 
-module.exports = withMDX(nextConfig)
+module.exports = nextConfig

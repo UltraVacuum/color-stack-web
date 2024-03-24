@@ -1,7 +1,8 @@
 import Link from 'next/link'
-export const CrxUrl = 'https://chromewebstore.google.com/detail/color-stack/odejgpnelfibbifobdffndebnbielcdl?ref=color-stack'
 
 export default function Article() {
+    const CrxUrl = 'https://chromewebstore.google.com/detail/color-stack/odejgpnelfibbifobdffndebnbielcdl?ref=color-stack'
+
     return (
         <div className="container">
             <h1 className="text-8xl text-black font-black tracking-wide text-">
@@ -23,9 +24,15 @@ export default function Article() {
                 How Does Color Stack Work?
             </h2>
 
-            <p className="text-2xl font-light my-8 text-justify">
-                Using Color Stack extension is as simple as it gets. you can get the <a className="underline decoration-indigo-500 font-bold" href={CrxUrl} target="_blank">extension</a> on google extension store, Upon visiting the website, you can collect the page theme color instantly, then Color Stack gets to work, analyzing the colors used throughout the site on you collection.
-            </p>
+            <div className="text-2xl font-light my-8 text-justify">
+                Using Color Stack extension is as simple as it gets. you can get the
+                <Link
+                    className="underline decoration-indigo-500 font-bold"
+                    href={CrxUrl}
+                    target="_blank">
+                    extension
+                </Link> on google extension store, Upon visiting the website, you can collect the page theme color instantly, then Color Stack gets to work, analyzing the colors used throughout the site on you collection.
+            </div>
             <p className="text-2xl font-light my-8 text-justify">
                 The extracted colors are then displayed on the this site, organized neatly for quick reference. Each color is accompanied by its hexadecimal code, making it easy to replicate in design software or other projects. Additionally, users have the option to save palettes for future use or share them with colleagues and clients.
             </p>
