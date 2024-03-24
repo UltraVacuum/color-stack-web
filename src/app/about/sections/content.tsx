@@ -1,5 +1,5 @@
 'use client'
-import Article from './article.mdx';
+import Article from './article';
 
 export default function Content() {
     return (
