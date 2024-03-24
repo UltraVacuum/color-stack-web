@@ -1,7 +1,7 @@
-import Link from 'next/link'
+import Link from & lsquo; next / link & lsquo;
 
 export default function Article() {
-    const CrxUrl = 'https://chromewebstore.google.com/detail/color-stack/odejgpnelfibbifobdffndebnbielcdl?ref=color-stack'
+    const CrxUrl = & lsquo; https://chromewebstore.google.com/detail/color-stack/odejgpnelfibbifobdffndebnbielcdl?ref=color-stack&lsquo;
 
     return (
         <div className="container">
@@ -10,14 +10,14 @@ export default function Article() {
             </h1>
 
             <p className="text-2xl font-light my-8 text-justify">
-                In the world of design, color is paramount. It sets the mood, conveys emotion, and ties everything together harmoniously. However, finding the perfect color palette can be a daunting task, especially when starting from scratch. That's where Color Stack comes in, revolutionizing the way designers create their color schemes.
+                In the world of design, color is paramount. It sets the mood, conveys emotion, and ties everything together harmoniously. However, finding the perfect color palette can be a daunting task, especially when starting from scratch. That&lsquo;s where Color Stack comes in, revolutionizing the way designers create their color schemes.
             </p>
 
             <h2 className="text-4xl text-green-400 font-light">
                 What is Color Stack?
             </h2>
             <p className="text-2xl font-light my-8 text-justify">
-                Color Stack is a web application designed to simplify the process of creating cohesive color palettes. It works with browser extension by collecting the theme colors from any web page and presenting them in an easily accessible format. Whether you're browsing a website, a blog, or an online store, Color Stack extension extracts the predominant colors used and compiles them into a convenient palette for your use.
+                Color Stack is a web application designed to simplify the process of creating cohesive color palettes. It works with browser extension by collecting the theme colors from any web page and presenting them in an easily accessible format. Whether you&lsquo;re browsing a website, a blog, or an online store, Color Stack extension extracts the predominant colors used and compiles them into a convenient palette for your use.
             </p>
 
             <h2 className="text-4xl text-green-400 font-light">
@@ -61,13 +61,13 @@ export default function Article() {
 
                 <span className="text-sky-500">Versatility: </span>
                 <p>
-                    Whether you're working on a website, an app interface, or a marketing campaign, Color Stack can adapt to your needs. Its flexibility makes it a valuable tool for designers across different industries and disciplines.
+                    Whether you&lsquo;re working on a website, an app interface, or a marketing campaign, Color Stack can adapt to your needs. Its flexibility makes it a valuable tool for designers across different industries and disciplines.
                 </p>
                 <hr className="my-8" />
 
                 <span className="text-sky-500">Collaboration: </span>
                 <p>
-                    Design is often a collaborative process, involving input from multiple stakeholders. With Color Stack's sharing feature, designers can easily exchange color palettes with team members, clients, and collaborators, fostering better communication and alignment.
+                    Design is often a collaborative process, involving input from multiple stakeholders. With Color Stack&lsquo;s sharing feature, designers can easily exchange color palettes with team members, clients, and collaborators, fostering better communication and alignment.
                 </p>
             </div>
 
@@ -75,7 +75,7 @@ export default function Article() {
                 Conclusion
             </h2>
             <p className="text-2xl font-light my-8 text-justify">
-                In the fast-paced world of design, efficiency is key. With Color Stack, designers can streamline their workflow, save time, and unleash their creativity like never before. By harnessing the power of existing color schemes, Color Stack empowers designers to create stunning visuals with ease. Whether you're a seasoned professional or just starting out, Color Stack is the ultimate tool for building beautiful, cohesive color palettes. Try it today and elevate your designs to new heights!
+                In the fast-paced world of design, efficiency is key. With Color Stack, designers can streamline their workflow, save time, and unleash their creativity like never before. By harnessing the power of existing color schemes, Color Stack empowers designers to create stunning visuals with ease. Whether you&lsquo;re a seasoned professional or just starting out, Color Stack is the ultimate tool for building beautiful, cohesive color palettes. Try it today and elevate your designs to new heights!
             </p>
         </div>
     )
