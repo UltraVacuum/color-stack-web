@@ -1,7 +1,7 @@
-import Link from & lsquo; next / link & lsquo;
+import Link from "next/link"
 
 export default function Article() {
-    const CrxUrl = & lsquo; https://chromewebstore.google.com/detail/color-stack/odejgpnelfibbifobdffndebnbielcdl?ref=color-stack&lsquo;
+    const CrxUrl = "https://chromewebstore.google.com/detail/color-stack/odejgpnelfibbifobdffndebnbielcdl?ref=color-stack"
 
     return (
         <div className="container">
