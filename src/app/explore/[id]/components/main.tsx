@@ -17,7 +17,7 @@ import {
     filterBlack
 } from "@/lib/color-filter"
 
-import sortColor from '@/lib/sort';
+import ColorSort from '@/lib/color-sort';
 import {
     ContentLayout,
     ErrorView
@@ -124,7 +124,7 @@ export default function Main({ eid }: { eid: string }) {
             const [item]: any = data
             setPageData(item)
             const prevColor = revelJson(item.page_colors)
-            const sc = sortColor(prevColor, sort, mode)
+            const sc = ColorSort(prevColor, sort, mode)
             setShowColor(sc)
         }
         if (!isLoading) pageInit()
@@ -132,7 +132,7 @@ export default function Main({ eid }: { eid: string }) {
 
     // sort effect
     useEffect(() => {
-        const sc = sortColor(showColor, sort, mode)
+        const sc = ColorSort(showColor, sort, mode)
         setShowColor(sc)
     }, [sort, mode])
 

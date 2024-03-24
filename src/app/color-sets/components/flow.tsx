@@ -9,6 +9,9 @@ import {
 } from "@/components/client/layout";
 import ColorCard from './color-card'
 
+import ColorSort from "@/lib/color-sort";
+import { SORT_BY_RGB, MODE_LIGHT } from "@/const";
+
 const PAGE_SIZE = 30
 
 const LoadingView = () => {
@@ -46,6 +49,14 @@ export default function Flow() {
         fetcher
     );
 
+    if (error) return (
+        <ContentLayout>
+            <ErrorView>
+                {error.message}
+            </ErrorView>
+        </ContentLayout>
+    )
+
     const allRows = data ? [].concat(...data) : [];
     const isLoadingMore =
         isLoading || (size > 0 && data && typeof data[size - 1] === "undefined");
@@ -54,13 +65,8 @@ export default function Flow() {
         isEmpty || (data && data[data.length - 1]?.length < PAGE_SIZE);
     const isRefreshing = isValidating && data && data.length === size;
 
-    if (error) return (
-        <ContentLayout>
-            <ErrorView>
-                {error.message}
-            </ErrorView>
-        </ContentLayout>
-    )
+    // const sortedList = ColorSort(allRows, SORT_BY_RGB, MODE_LIGHT)
+    // console.log(allRows)
 
     return (
         <ContentLayout>

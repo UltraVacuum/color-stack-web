@@ -13,14 +13,14 @@ const menus = [{
     title: 'Explore',
 }, {
     path: '/color-sets',
-    title: 'Datasets',
+    title: 'Colorsets',
+}, {
+    path: process.env.EXTENSION_URL,
+    title: 'Extension',
+    target: '_blank'
 }, {
     path: '/about',
     title: 'About',
-}, {
-    path: process.env.EXTENSION_URL,
-    title: 'Tools',
-    target: '_blank'
 }]
 
 const MobileNav = () => {

@@ -9,8 +9,19 @@ import {
 
 const noop = () => { };
 
-export default function sortColor(
-    colors: any,
+type Color = {
+    alpha?: number,
+    rgb: Array<number>,
+    hex: string,
+    hsl?: Array<number>,
+    hsv?: Array<number>,
+    hue?: number,
+    lum?: number,
+}
+
+// color sort algorithm
+export default function ColorSort(
+    colors: Array<Color>,
     sort = SORT_BY_RGB,
     mode = MODE_LIGHT
 ) {
@@ -25,7 +36,7 @@ export default function sortColor(
 
     // gen fn to cal two color distance by color space value
     const disFn = (v: any) => (a: any, b: any) => euclidean(a[v], b[v])
-    // gen fn to sort tow color by compare value
+    // gen fn to sort two color by compare value
     const cmpFn = (v: any) => (a: any, b: any) => mode === MODE_LIGHT ?
         b[v] - a[v] : a[v] - b[v]
 
