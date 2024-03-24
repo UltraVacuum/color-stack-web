@@ -6,11 +6,10 @@ const nextConfig = {
     //     staticFolder: '/static',
     // },
     // assetPrefix: '',
-    pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+    pageExtensions: ['mdx', 'ts', 'tsx'],
     basePath: '',
     // output: 'export',
     // distDir: 'build',
 }
 
 module.exports = withMDX(nextConfig)
-// module.exports = nextConfig
