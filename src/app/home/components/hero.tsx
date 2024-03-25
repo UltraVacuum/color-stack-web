@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import HeroImage from './hero@1000.png'
+import HeroImage from './colors.png'
 
 import './hero.css';
 
