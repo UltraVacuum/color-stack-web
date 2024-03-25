@@ -25,7 +25,6 @@ export default function ColorSort(
     sort = SORT_BY_RGB,
     mode = MODE_LIGHT
 ) {
-
     const euclidean = (a1: any, a2: any) => {
         const args = a1.map((v: any, i: any) => {
             if (i > 2) return 0

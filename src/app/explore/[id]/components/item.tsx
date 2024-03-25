@@ -1,7 +1,6 @@
 import { ThumbsUp } from 'lucide-react'
 import { ColorItemDetail } from '@/components/local/color-item';
 
-
 export default function ColorItem({ color }: { color: any }) {
     return (
         <div>
