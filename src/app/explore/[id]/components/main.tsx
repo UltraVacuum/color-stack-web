@@ -138,7 +138,8 @@ export default function Main({ eid }: { eid: string }) {
 
     // filter effect
     useEffect(() => {
-        let sc = showColor
+        if (!pageData) return
+        let sc = pageData.page_colors
         for (let k of filterMode) {
             if (filter.indexOf(k) > -1) {
                 const fn = filterFunc[k]
@@ -146,6 +147,8 @@ export default function Main({ eid }: { eid: string }) {
                 sc = sc.filter(({ rgb }: any) => fn(rgb, t))
             }
         }
+        sc = ColorSort(sc, sort, mode)
+        setShowColor(sc)
     }, [filter, threshold])
 
     if (isLoading || !pageData) return (
