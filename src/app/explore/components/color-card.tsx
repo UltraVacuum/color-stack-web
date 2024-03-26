@@ -2,12 +2,7 @@ import _ from 'lodash';
 import Link from 'next/link'
 import { Clock4 } from 'lucide-react';
 import dayjs from "@/lib/time";
-import { revelJson } from "@/lib/utils";
-import {
-    filterGray,
-    filterWhite,
-    filterBlack
-} from "@/lib/color-filter"
+import { filterShow, } from "@/lib/color-filter"
 import UserAvatar from '@/components/local/avatar'
 import {
     ColorItemDetail
@@ -16,18 +11,7 @@ import {
 import './color-card.scss';
 
 export const ColorList = ({ colors }: any) => {
-    const fc = colors // filter color
-        .filter(({ rgb }: any) => filterBlack(rgb))
-        .filter(({ rgb }: any) => filterWhite(rgb))
-        .filter(({ rgb }: any) => filterGray(rgb))
-
-    // const sc = nestColors(fc, 15) // show color
-    // show colors
-    const FILTER_SIZE = 10
-    const sc = fc.length === 0 ?
-        _.slice(colors, 0, FILTER_SIZE) :
-        _.slice(fc, 0, FILTER_SIZE)
-
+    const sc = filterShow(colors, 8)
     return (
         <div className="flex flex-wrap">
             {sc.map((color: any, index: any) => {
@@ -56,17 +40,16 @@ export const ColorHead = ({ page }: { page: any }) => {
 }
 
 export const ColorCard = ({ page }: { page: any }) => {
-    const showColors = revelJson(page.pres_colors)
-
+    const showColors = page.page_colors
     return (
         <div className="card divide-y divide-zinc-400 mb-1">
             <ColorHead page={page} />
             <div className="py-2">
                 <ColorList colors={showColors} />
             </div>
-            <div className="flex items-center space-x-2 text-sm py-2">
-                <Clock4 className='w-4 h-4 text-sky-500' />
-                <span className="ml-1 text-sky-500">
+            <div className="flex items-center justify-between space-x-2 text-sm py-2">
+                <span className="flex items-center text-sky-500">
+                    <Clock4 className='w-4 h-4 text-sky-500 mr-1' />
                     {dayjs(page.created_at).fromNow()}
                 </span>
                 <UserAvatar

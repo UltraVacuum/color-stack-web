@@ -1,19 +1,28 @@
 'use client';
 import useSWR from "swr";
-import {
-    fetcher,
-} from "@/lib/utils";
+import { fetcher, } from "@/lib/utils";
 import {
     ContentLayout,
     ErrorView
 } from "@/components/client/layout";
-
+import { LoadingView } from '@/app/explore/components/flow'
 import SitePanel from './site-panel';
 
-const PAGE_SIZE = 10
+const PAGE_SIZE = 16
+
+const Layout = ({ children }: any) => {
+    return (
+        <ContentLayout>
+            <h2 className="text-4xl text-center font-mono font-extrabold py-8">
+                Recent Collects.
+            </h2>
+            {children}
+        </ContentLayout>
+    )
+}
 
 export default function ThemePanels() {
-    const randPage = Math.ceil(Math.random() * 12)
+    // const randPage = Math.ceil(Math.random() * 12)
 
     const { data, error, isLoading } = useSWR(
         `/api/explore?page_size=${PAGE_SIZE}&page=${1}`,
@@ -22,28 +31,25 @@ export default function ThemePanels() {
 
     if (isLoading) {
         return (
-            <ContentLayout>
-                loading...
-            </ContentLayout>
+            <Layout>
+                <LoadingView />
+            </Layout>
         )
     }
 
     if (error) {
         return (
-            <ContentLayout>
+            <Layout>
                 <ErrorView>
                     {error.message}
                 </ErrorView>
-            </ContentLayout>
+            </Layout>
         )
     }
 
     return (
-        <ContentLayout>
-            <h2 className="text-4xl text-center font-mono font-extrabold">
-                Recent Collects.
-            </h2>
+        <Layout>
             <SitePanel collects={data} />
-        </ContentLayout>
+        </Layout>
     )
 }

@@ -21,7 +21,7 @@ const Layout = ({ children }: {
 }
 
 export const LoadingView = () => {
-    const sks = new Array(10).fill(1).map((a, i) => i)
+    const sks = new Array(PAGE_SIZE).fill(1).map((a, i) => i)
     return (
         <div className="grid md:grid-cols-4 md:gap-4 grid-cols-1 mb-4">
             {
