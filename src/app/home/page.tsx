@@ -10,38 +10,38 @@ import ColorSets from './components/color-sets';
 import ThemePanels from './components/theme-panels';
 
 const getData = async () => {
-    const pg = Math.round(Math.random() * 10 + 1) // page
-    const ps = 24 * 12 // page size
-    const skip = pg * ps
-    const supabase = createClient()
-    return await supabase
-        .from('color_sets')
-        .select('*')
-        .range(skip + 1, skip + ps)
+  const pg = Math.round(Math.random() * 10 + 1) // page
+  const ps = 64 // page size - exactly 64 colors for the grid
+  const skip = pg * ps
+  const supabase = createClient()
+  return await supabase
+    .from('color_sets')
+    .select('*')
+    .range(skip + 1, skip + ps)
 }
 
 export default async function Home() {
-    const { data, error } = await getData()
+  const { data, error } = await getData()
 
-    if (error) return (
-        <ErrorView>
-            {error.message}
-        </ErrorView>
-    )
+  if (error) return (
+    <ErrorView>
+      {error.message}
+    </ErrorView>
+  )
 
-    return (
-        <>
-            <div className="relative">
-                <Hero>
-                    <DyHero colorSets={data} />
-                </Hero>
-                <Navigation />
-                <ThemePanels />
-                <div className="min-h-screen md:px-24 px-8">
-                    <ColorSets colorSets={data} />
-                    <SubPanels />
-                </div>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className="relative">
+        <Hero>
+          <DyHero colorSets={data} />
+        </Hero>
+        <Navigation />
+        <ThemePanels />
+        <div className="min-h-screen md:px-24 px-8 pt-12 pb-20">
+          <ColorSets colorSets={data} />
+          <SubPanels />
+        </div>
+      </div>
+    </>
+  )
 }

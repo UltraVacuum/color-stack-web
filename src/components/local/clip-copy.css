@@ -1,3 +1,23 @@
+.copy-item {
+    position: relative;
+    transition: all 0.2s ease;
+}
+
 .copy-item:hover {
-    background: rgb(225, 225, 225, .7);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(168, 85, 247, 0.1));
+    transform: translateY(-1px);
+}
+
+.copy-item:active {
+    transform: translateY(0);
+}
+
+.copy-success {
+    animation: copySuccess 0.3s ease;
+}
+
+@keyframes copySuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }

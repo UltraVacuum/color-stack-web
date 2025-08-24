@@ -1,0 +1,40 @@
+
+> color-stack-fe@0.1.0 dev
+> next dev
+
+   ▲ Next.js 14.0.4
+   - Local:        http://localhost:3000
+   - Environments: .env.local, .env.development
+
+ ✓ Ready in 2.1s
+ ○ Compiling / ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ ✓ Compiled / in 3.5s (1679 modules)
+ ⨯ ./src/app/home/components/sub-panels-new.tsx
+Error: Failed to read source code from /Users/vicvinc/Desktop/codespace/color-stack-fe/src/app/home/components/sub-panels-new.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/app/home/components/sub-panels-new.tsx
+./src/app/home/page.tsx
+./src/app/page.tsx
+ ⨯ ./src/app/home/components/sub-panels-new.tsx
+Error: Failed to read source code from /Users/vicvinc/Desktop/codespace/color-stack-fe/src/app/home/components/sub-panels-new.tsx
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./src/app/home/components/sub-panels-new.tsx
+./src/app/home/page.tsx
+./src/app/page.tsx
+ ○ Compiling /_error ...
+ ✓ Compiled /not-found in 541ms (1753 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled /api/explore in 106ms (750 modules)
+ ✓ Compiled in 445ms (1760 modules)
+[?25h
