@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { ClipCopy } from '@/components/local/clip-copy';
 
 import "./color-card.css";
@@ -10,12 +11,15 @@ const hsvFormat = (color: any) => {
 
 export default function ColorCard({ color }: { color: any }) {
     return (
-        <div
+        <Link 
+            href={`/colors/${color.id}`}
             className="
                 w-full h-24 
                 px-4 py-2
                 border border-dotted 
                 card-item
+                block
+                hover:shadow-lg transition-shadow
             "
             style={{
                 background: `${color.hex}`
@@ -25,6 +29,6 @@ export default function ColorCard({ color }: { color: any }) {
                 {color.hex}
                 {color.alpha}
             </ClipCopy>
-        </div>
+        </Link>
     )
 };

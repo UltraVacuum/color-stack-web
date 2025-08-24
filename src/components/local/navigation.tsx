@@ -15,9 +15,8 @@ const menus = [{
     path: '/color-sets',
     title: 'Colorsets',
 }, {
-    path: process.env.EXTENSION_URL,
-    title: 'Extension',
-    target: '_blank'
+    path: '/extension',
+    title: 'Extension'
 }, {
     path: '/about',
     title: 'About',

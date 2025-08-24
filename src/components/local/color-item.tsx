@@ -3,6 +3,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
+import Link from "next/link";
 
 import { ClipCopy } from './clip-copy'
 import { cn } from "@/lib/utils"
@@ -40,13 +41,18 @@ export const ColorItemDetail = ({ className, color }: any) => {
                     </span>
                     elements on the page.
                 </p>
+                <Link 
+                    href={`/colors/${color.id}`}
+                    className="block px-4 py-2 text-blue-500 hover:text-blue-700 text-xs border-t"
+                >
+                    View Color Details →
+                </Link>
             </PopoverContent>
         </Popover>
     )
 }
-
 export default function ColorItemBasic({ color }: any) {
-    const { hex } = color
+    const { hex, id } = color
     return (
         <Popover >
             <PopoverTrigger
@@ -63,6 +69,12 @@ export default function ColorItemBasic({ color }: any) {
                     <ClipCopy text={hex}>
                         <span className="mr-4">HEX: {hex}</span>
                     </ClipCopy>
+                    <Link 
+                        href={`/colors/${id}`}
+                        className="block mt-2 text-blue-500 hover:text-blue-700 text-xs"
+                    >
+                        View Details →
+                    </Link>
                 </div>
             </PopoverContent>
         </Popover>
