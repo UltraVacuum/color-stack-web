@@ -1,0 +1,26 @@
+
+# Vercel ignore file
+.DS_Store
+*.log
+node_modules/
+.next/
+dist/
+build/
+coverage/
+.nyc_output/
+.vscode/
+.idea/
+*.tsbuildinfo
+.env.local
+.env.development
+.env.production
+.env.test
+.npmrc
+.yarnrc
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+README.md
+LICENSE
+CHANGELOG.md
+CONTRIBUTING.md

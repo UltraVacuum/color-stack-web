@@ -6391,3 +6391,20 @@ Browserslist: caniuse-lite is outdated. Please run:
  ✓ Compiled in 187ms (1622 modules)
  ✓ Compiled in 181ms (1622 modules)
  ✓ Compiled /api/explore in 213ms (729 modules)
+ ⚠ Found a change in next.config.js. Restarting the server to apply the changes...
+   ▲ Next.js 14.0.4
+   - Local:        http://localhost:3000
+   - Environments: .env.local, .env.development
+   - Experiments (use at your own risk):
+     · optimizeCss
+
+ ✓ Ready in 2.1s
+ ✓ Compiled /api/explore in 440ms (104 modules)
+ ○ Compiling / ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ ✓ Compiled / in 3.5s (1695 modules)
+ ✓ Compiled in 302ms (888 modules)
+ ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+[?25h

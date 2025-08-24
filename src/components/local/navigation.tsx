@@ -44,7 +44,6 @@ const MobileNav = () => {
                             >
                                 <Link
                                     href={`${m.path}`}
-                                    target={`${m.target || ''}`}
                                 >
                                     {`${m.title}`}
                                 </Link>
@@ -81,7 +80,6 @@ const HeadMenus = () => {
                             <a
                                 className='hover:text-sky-500 dark:hover:text-sky-400'
                                 href={`${m.path}`}
-                                target={`${m.target || ''}`}
                                 key={i}
                             >
                                 {`${m.title}`}
