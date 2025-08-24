@@ -2,9 +2,10 @@ import { createClient } from "@/supabase/server";
 
 export async function GET(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
-    const supabase = createClient()
+    const resolvedParams = await params;
+    const supabase = await createClient()
     const { data, error } = await supabase
         .from('page_colors')
         .select(`*, 
@@ -14,7 +15,7 @@ export async function GET(
                 name:user_meta->full_name
                 )
             )`)
-        .eq('id', params.id)
+        .eq('id', resolvedParams.id)
 
     return Response.json(data)
 }

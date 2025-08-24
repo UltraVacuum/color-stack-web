@@ -7,7 +7,7 @@ export default function GoogleSignIn() {
 
     const signInWithGoogle = async (formData: FormData) => {
         "use server";
-        const supabase = createClient();
+        const supabase = await createClient();
         const redirectUrl = process.env.NEXT_AUTH_REDIRECT_URL
         const { data, error }: any = await supabase.
             auth.signInWithOAuth({

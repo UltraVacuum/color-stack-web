@@ -13,7 +13,7 @@ export const ContentLayout = ({ children }: {
     useEffect(() => {
         console.log('update effect', fetchAuth)
         const initUser = async () => {
-            const supabase = createClient();
+            const supabase = await createClient();
             const {
                 data: { user: cu },
             } = await supabase.auth.getUser();

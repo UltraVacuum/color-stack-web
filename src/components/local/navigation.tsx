@@ -56,20 +56,20 @@ const MobileNav = () => {
     )
 }
 
-const HeadMenus = () => {
+const HeadMenus = async () => {
 
-    const canInitSupabaseClient = () => {
+    const canInitSupabaseClient = async () => {
         // This function is just for the interactive tutorial.
         // Feel free to remove it once you have Supabase connected.
         try {
-            createClient();
+            await createClient();
             return true;
         } catch (e) {
             return false;
         }
     };
 
-    const isSupabaseConnected = canInitSupabaseClient();
+    const isSupabaseConnected = await canInitSupabaseClient();
     return (
         <nav className='text-sm leading-6 font-semibold
                 text-slate-700 dark:text-slate-200'>

@@ -9,7 +9,7 @@ interface ColorDetailPageProps {
 
 export default async function ColorDetailPage({ params }: ColorDetailPageProps) {
   const { id } = await params;
-  const supabase = createClient();
+  const supabase = await createClient();
   
   const { data: color, error } = await supabase
     .from('color_sets')

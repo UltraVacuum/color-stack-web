@@ -4,7 +4,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme")
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-    darkMode: ["class"],
+    darkMode: ["class", "class"],
     content: [
         './pages/**/*.{ts,tsx}',
         './components/**/*.{ts,tsx}',
@@ -14,9 +14,9 @@ const config: Config = {
         './src/components/**/*.{js,ts,jsx,tsx,mdx}',
         './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
-    sassOptions: {
-        includePaths: ['./src/**/*.scss'],
-    },
+    // sassOptions: {
+    //     includePaths: ['./src/**/*.scss'],
+    // },
     theme: {
         container: {
             center: true,

@@ -4,14 +4,15 @@ import { ContentLayout } from "@/components/local/layout";
 import GoogleSignIn from "./components/google-signin";
 import EmailSignIn from "./components/email-signin";
 
-export default function Page({
+export default async function Page({
     searchParams,
 }: {
-    searchParams: {
+    searchParams: Promise<{
         message?: string,
         code?: string
-    };
+    }>;
 }) {
+    const resolvedSearchParams = await searchParams;
 
     return (
         <ContentLayout>
@@ -34,10 +35,10 @@ export default function Page({
                         <hr />
                         <EmailSignIn />
                     </div>
-                    {searchParams?.message && (
+                    {resolvedSearchParams?.message && (
                         <p className="mt-4 px-4 py-2 bg-foreground/10 
                             text-foreground text-center">
-                            {searchParams.message}
+                            {resolvedSearchParams.message}
                         </p>
                     )}
                 </div>

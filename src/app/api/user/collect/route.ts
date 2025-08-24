@@ -5,7 +5,7 @@ export async function GET(request: Request) {
     const pg = Number(searchParams.get('page')) // page
     const ps = Number(searchParams.get('page_size')) || 15 // page size
     // // console.log('page', pg)
-    const supabase = createClient()
+    const supabase = await createClient()
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return Response.json({
         data: [],

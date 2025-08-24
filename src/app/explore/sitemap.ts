@@ -6,7 +6,7 @@ import type {
 import { createClient } from "@/supabase/server";
 
 export async function fetchMeta(s: number, e: number) {
-    const supabase = createClient()
+    const supabase = await createClient()
     return await supabase
         .from('page_colors')
         .select(`*`)

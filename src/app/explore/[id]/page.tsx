@@ -4,12 +4,12 @@ import { BasicLayout } from "@/components/local/layout";
 import Main from './components/main';
 
 type Props = {
-    params: { id: string }
-    searchParams: { [key: string]: string | string[] | undefined }
+    params: Promise<{ id: string }>
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 async function fetchMata(id: string | number) {
-    const supabase = createClient()
+    const supabase = await createClient()
     return await supabase
         .from('page_colors')
         .select(`*, 
@@ -30,7 +30,8 @@ export async function generateMetadata(
     // fetch data
     // optionally access and extend (rather than replace) parent metadata
     const previousImages = (await parent).openGraph?.images || []
-    const { data: [meta], error }: any = await fetchMata(params.id)
+    const resolvedParams = await params;
+    const { data: [meta], error }: any = await fetchMata(resolvedParams.id)
 
     const domain = new URL(meta.page_url).hostname
     const title = `Explore theme colors on ${domain}`
@@ -53,10 +54,11 @@ export async function generateMetadata(
 
 export default async function Page({
     params
-}: { params: { id: string } }) {
+}: { params: Promise<{ id: string }> }) {
+    const resolvedParams = await params;
     return (
         <BasicLayout>
-            <Main eid={params.id} />
+            <Main eid={resolvedParams.id} />
         </BasicLayout>
     )
 }

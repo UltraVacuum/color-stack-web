@@ -13,7 +13,7 @@ const getData = async () => {
   const pg = Math.round(Math.random() * 10 + 1) // page
   const ps = 64 // page size - exactly 64 colors for the grid
   const skip = pg * ps
-  const supabase = createClient()
+  const supabase = await createClient()
   return await supabase
     .from('color_sets')
     .select('*')
