@@ -1,0 +1,36 @@
+
+> color-stack@0.1.0 dev /Users/vicvinc/Desktop/codespace/color-stack-fe
+> next dev
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/vicvinc/pnpm-lock.yaml as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/vicvinc/Desktop/codespace/color-stack-fe/pnpm-lock.yaml
+
+ ⚠ Port 3000 is in use by process 10217, using available port 3001 instead.
+   ▲ Next.js 15.5.0
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.1.7:3001
+   - Environments: .env.local, .env.development
+   - Experiments (use with caution):
+     ✓ optimizeCss
+
+ ✓ Starting...
+ ✓ Ready in 2.1s
+ ○ Compiling / ...
+ ✓ Compiled / in 3.1s (2403 modules)
+ GET / 200 in 5155ms
+ ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+ GET / 200 in 1638ms
+ ⚠ Cross origin request detected from 192.168.1.7 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ○ Compiling /api/explore ...
+ ✓ Compiled /api/explore in 597ms (2399 modules)
+ GET /api/explore?page_size=16&page=1 200 in 1079ms
+ GET / 200 in 1312ms
+ ✓ Compiled /about in 295ms (2405 modules)
+ GET /about 200 in 794ms
+ GET / 200 in 1090ms
+ GET /api/explore?page_size=16&page=1 200 in 339ms

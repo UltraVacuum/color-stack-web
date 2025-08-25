@@ -66,11 +66,11 @@ export default function ColorSets({ colorSets }: any) {
                     </div>
                 </div>
                 
-                <div className="grid grid-cols-8 gap-2 p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl border border-gray-200/50">
+                <div className="grid grid-cols-8 gap-3 p-8 bg-gradient-to-br from-white/80 to-gray-50/80 rounded-3xl border border-gray-200/50 backdrop-blur-sm shadow-lg">
                     {colorSets.map((color: any, idx: number) => (
                         <div key={idx} className="relative group aspect-square flex items-center justify-center">
                             <ColorItemBasic color={color} />
-                            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 rounded-lg transition-all duration-300 pointer-events-none"></div>
+                            <div className="absolute inset-0 bg-white bg-opacity-0 group-hover:bg-opacity-30 rounded-lg transition-all duration-300 pointer-events-none backdrop-blur-sm"></div>
                         </div>
                     ))}
                 </div>

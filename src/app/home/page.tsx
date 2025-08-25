@@ -37,7 +37,7 @@ export default async function Home() {
         </Hero>
         <Navigation />
         <ThemePanels />
-        <div className="min-h-screen md:px-24 px-8 pt-12 pb-20">
+        <div className="min-h-screen px-4 sm:px-6 lg:px-8 pt-8 pb-16 max-w-7xl mx-auto">
           <ColorSets colorSets={data} />
           <SubPanels />
         </div>
