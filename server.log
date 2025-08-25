@@ -37,3 +37,146 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
  GET /api/explore?page_size=16&page=1 200 in 905ms
  ✓ Compiled in 310ms (837 modules)
  GET / 200 in 2186ms
+ GET /api/explore?page_size=16&page=1 200 in 1223ms
+ GET /api/explore?page_size=16&page=1 200 in 767ms
+ ✓ Compiled in 427ms (2411 modules)
+ GET / 200 in 1319ms
+ ✓ Compiled /api/explore in 156ms (1582 modules)
+ GET /api/explore?page_size=16&page=1 200 in 1239ms
+ GET / 200 in 1249ms
+ GET /api/explore?page_size=16&page=1 200 in 320ms
+ ✓ Compiled in 357ms (2419 modules)
+ GET / 200 in 1657ms
+ GET / 200 in 1664ms
+ GET /api/explore?page_size=16&page=1 200 in 305ms
+ GET /api/explore?page_size=16&page=1 200 in 1086ms
+ GET / 200 in 1191ms
+ GET /api/explore?page_size=16&page=1 200 in 374ms
+ ✓ Compiled in 503ms (2411 modules)
+ GET / 200 in 1402ms
+ ⨯ Error: Could not find the module "/Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '961071616'
+}
+ ⨯ Error: Could not find the module "/Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '2665269568'
+}
+ ⨯ Error: Could not find the module "/Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '2665269568'
+}
+ ⨯ Error: Could not find the module "/Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '2665269568'
+}
+ ⨯ Error: Could not find the module "/Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '961071616'
+}
+ ⨯ Error: Could not find the module "/Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '961071616'
+}
+ ⨯ [TypeError: Cannot read properties of undefined (reading 'call')] {
+  digest: '4221484506'
+}
+ ⨯ Error: Could not find the module "/Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '3113043224'
+}
+[TypeError: Cannot read properties of undefined (reading 'call')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading 'call')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading 'call')] {
+  page: '/'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 858ms (2736 modules)
+Time 2.549
+ GET / 500 in 2731ms
+ GET / 200 in 1285ms
+ GET / 200 in 1152ms
+ ✓ Compiled /api/explore in 148ms (1770 modules)
+ ⨯ Error: Cannot find module './61.js'
+Require stack:
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/.next/server/webpack-runtime.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/.next/server/app/api/explore/route.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/require.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/load-components.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/utils.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/swc/options.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/swc/index.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/lib/router-server.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/api/explore/route.js:7:5881)
+    at Object.<anonymous> (.next/server/app/api/explore/route.js:7:5930) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/api/explore'
+}
+Time 1.728166
+ GET /api/explore?page_size=16&page=1 500 in 492ms
+ ⨯ Error: Cannot find module './61.js'
+Require stack:
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/.next/server/webpack-runtime.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/.next/server/app/api/explore/route.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/require.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/load-components.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/utils.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/swc/options.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/swc/index.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/lib/router-server.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/api/explore/route.js:7:5881)
+    at Object.<anonymous> (.next/server/app/api/explore/route.js:7:5930) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/api/explore'
+}
+Time 1.257125
+ GET /api/explore?page_size=16&page=1 500 in 245ms
+ ⨯ Error: Cannot find module './61.js'
+Require stack:
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/.next/server/webpack-runtime.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/.next/server/app/api/explore/route.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/require.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/load-components.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/utils.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/swc/options.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/swc/index.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/lib/router-server.js
+- /Users/vicvinc/Desktop/codespace/color-stack-fe/node_modules/.pnpm/next@15.5.0_react-dom@19.1.1_react@19.1.1__react@19.1.1_sass@1.90.0/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/api/explore/route.js:7:5881)
+    at Object.<anonymous> (.next/server/app/api/explore/route.js:7:5930) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/api/explore'
+}
+Time 2.058083
+ GET /api/explore?page_size=16&page=1 500 in 253ms
+ ✓ Compiled /home in 375ms (2745 modules)
+ GET / 200 in 2137ms
+ GET /home 200 in 1537ms
+ GET / 200 in 1524ms
+ GET / 200 in 1639ms
+ ✓ Compiled /_not-found in 384ms (2750 modules)
+ GET / 404 in 521ms
+ GET / 200 in 471ms
+ GET / 200 in 2198ms
+ ✓ Compiled in 1041ms (2670 modules)
+ ✓ Compiled in 1028ms (2657 modules)
+ ✓ Compiled in 385ms (2657 modules)
+ ✓ Compiled in 323ms (2657 modules)
+ ✓ Compiled in 320ms (2657 modules)

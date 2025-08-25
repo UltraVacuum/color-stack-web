@@ -25,12 +25,12 @@ export default function SubPanels() {
     return (
         <section className="py-20 px-6">
             <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-16">
+                <div className="text-center mb-20">
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-                        Powerful <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Tools</span> for Designers
+                        Advanced <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Design Tools</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Everything you need to create stunning color schemes and elevate your design workflow
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Professional-grade tools to analyze, create, and manage color collections with precision
                     </p>
                 </div>
 
@@ -70,28 +70,29 @@ export default function SubPanels() {
                     ))}
                 </div>
 
-                {/* Bottom CTA */}
-                <div className="text-center mt-16">
-                    <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-12 border border-blue-100">
-                        <h3 className="text-3xl font-bold text-gray-800 mb-4">
-                            Ready to Transform Your Design Process?
+                {/* Bottom CTA - Enhanced */}
+                <div className="text-center mt-20">
+                    <div className="bg-gradient-to-br from-white to-blue-50/30 rounded-3xl p-16 border border-blue-100/50 shadow-lg backdrop-blur-sm">
+                        <h3 className="text-4xl font-bold text-gray-800 mb-6">
+                            Ready to <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Elevate Your Designs</span>?
                         </h3>
-                        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                            Join thousands of designers who use Color Stack to create beautiful, cohesive color palettes
+                        <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+                            Join our community of 5,000+ designers and developers creating exceptional color experiences
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <div className="flex flex-col sm:flex-row gap-6 justify-center">
                             <Link
                                 href="/explore"
-                                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-200 inline-flex items-center"
+                                className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-12 py-5 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:scale-105 inline-flex items-center group"
                             >
-                                <Compass className="w-5 h-5 mr-2" />
+                                <Compass className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform" />
                                 Start Exploring
+                                <span className="ml-2 text-blue-200 group-hover:translate-x-1 transition-transform">→</span>
                             </Link>
                             <Link
                                 href="/color-sets"
-                                className="border-2 border-blue-200 text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-200"
+                                className="border-2 border-blue-200 bg-white/80 text-blue-700 px-12 py-5 rounded-2xl font-semibold hover:bg-blue-50 hover:border-blue-300 hover:shadow-lg transition-all duration-300"
                             >
-                                View Collections
+                                Browse Collections
                             </Link>
                         </div>
                     </div>

@@ -83,35 +83,48 @@ export default function ColorSets({ colorSets }: any) {
                 </div>
             </div>
 
-            {/* Enhanced CTA Section */}
-            <div className="text-center">
-                <div className="bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-3xl p-12 border border-blue-200/30 backdrop-blur-sm">
-                    <div className="inline-flex items-center px-4 py-2 bg-white rounded-full border border-blue-200 mb-6">
-                        <BarChart3 className="w-4 h-4 text-blue-600 mr-2" />
-                        <span className="text-sm font-semibold text-blue-700">Advanced Analytics</span>
+            {/* Enhanced CTA Section - Optimized for Collections */}
+            <div className="text-center max-w-4xl mx-auto">
+                <div className="bg-gradient-to-br from-white to-blue-50/30 rounded-3xl p-12 border border-blue-100/50 shadow-lg backdrop-blur-sm">
+                    <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-200/50 mb-8">
+                        <BarChart3 className="w-5 h-5 text-blue-600 mr-2" />
+                        <span className="text-sm font-semibold text-blue-700">Premium Collections</span>
                     </div>
                     
-                    <h3 className="text-3xl font-bold text-gray-800 mb-4">
-                        Ready to Master Color Intelligence?
+                    <h3 className="text-4xl font-bold text-gray-800 mb-6">
+                        Unlock the Full <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Color Universe</span>
                     </h3>
                     
-                    <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                        Access our complete database with advanced filtering, trend analysis, and professional tools for designers and developers.
+                    <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+                        Dive into our curated collections with millions of colors, advanced analytics, and professional tools designed for creative workflows.
                     </p>
                     
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-200 hover:-translate-y-1 inline-flex items-center">
-                            <Database className="w-5 h-5 mr-2" />
-                            Explore Full Database
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-10">
+                        <button className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-10 py-5 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:scale-105 inline-flex items-center group">
+                            <Database className="w-6 h-6 mr-3 group-hover:scale-110 transition-transform" />
+                            Explore Collections
+                            <span className="ml-2 text-blue-200 group-hover:translate-x-1 transition-transform">→</span>
                         </button>
                         
-                        <button className="border-2 border-blue-200 text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 hover:border-blue-300 transition-all duration-200">
-                            View API Documentation
+                        <button className="border-2 border-blue-200 bg-white/80 text-blue-700 px-10 py-5 rounded-2xl font-semibold hover:bg-blue-50 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+                            View Documentation
                         </button>
                     </div>
                     
-                    <div className="mt-6 text-sm text-gray-500">
-                        Trusted by 5,000+ designers and developers worldwide
+                    {/* Stats Grid */}
+                    <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-blue-700 mb-2">10K+</div>
+                            <div className="text-sm text-blue-600 font-medium">Color Palettes</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-purple-700 mb-2">500+</div>
+                            <div className="text-sm text-purple-600 font-medium">Daily Updates</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-3xl font-bold text-pink-700 mb-2">5K+</div>
+                            <div className="text-sm text-pink-600 font-medium">Pro Users</div>
+                        </div>
                     </div>
                 </div>
             </div>
