@@ -21,13 +21,13 @@ const LoadingView = () => {
     const SKELETON_SIZE = 12
     const sks = new Array(SKELETON_SIZE).fill(1).map((a, i) => i)
     return (
-        <div className="grid grid-cols-6 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
             {
                 sks.map((a, i) => {
                     return (
                         <Skeleton
                             key={i}
-                            className="h-24 w-full"
+                            className="h-28 w-full rounded-xl"
                         />
                     )
                 })
@@ -95,47 +95,60 @@ export default function Flow() {
 
     return (
         <ContentLayout>
-            {/* Search Section */}
-            <div className="mb-8 p-6 bg-gray-50 rounded-lg">
-                <div className="flex items-center space-x-4 mb-4">
+            {/* Search Section - Modernized */}
+            <div className="mb-10 p-8 bg-gradient-to-br from-white to-gray-50/50 rounded-2xl border border-gray-200/40 shadow-sm backdrop-blur-sm">
+                <div className="flex flex-col sm:flex-row items-center gap-4">
                     <div className="relative flex-1">
-                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                         <input
                             type="text"
-                            placeholder={searchMode === 'color' ? "Search by color (hex, rgb)..." : "Search by website domain..."}
+                            placeholder={searchMode === 'color' ? "Search colors by hex, rgb, or name..." : "Search by website domain..."}
                             value={searchQuery}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
                             onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && handleSearch()}
-                            className="pl-10 border rounded-md px-3 py-2 w-full"
+                            className="pl-12 border-2 border-gray-200/60 rounded-xl px-4 py-3 w-full text-lg focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all duration-200"
                         />
                     </div>
-                    <Button onClick={handleSearch} disabled={!searchQuery.trim()}>
-                        <Search className="w-4 h-4 mr-2" />
-                        Search
-                    </Button>
-                    <Button 
-                        variant={searchMode === 'color' ? "default" : "outline"} 
-                        onClick={() => setSearchMode('color')}
-                    >
-                        <Palette className="w-4 h-4 mr-2" />
-                        Color
-                    </Button>
-                    <Button 
-                        variant={searchMode === 'website' ? "default" : "outline"} 
-                        onClick={() => setSearchMode('website')}
-                    >
-                        <Globe className="w-4 h-4 mr-2" />
-                        Website
-                    </Button>
-                    {searchQuery && (
-                        <Button variant="ghost" onClick={handleClearSearch}>
-                            Clear
+                    
+                    <div className="flex items-center gap-3">
+                        <Button 
+                            onClick={handleSearch} 
+                            disabled={!searchQuery.trim()}
+                            className="px-6 py-3 rounded-xl text-base font-semibold"
+                        >
+                            <Search className="w-5 h-5 mr-2" />
+                            Search
                         </Button>
-                    )}
+                        
+                        <div className="flex bg-gray-100/80 rounded-xl p-1 border border-gray-200/50">
+                            <Button 
+                                variant={searchMode === 'color' ? "default" : "ghost"} 
+                                onClick={() => setSearchMode('color')}
+                                className="px-4 py-2 rounded-lg text-sm"
+                            >
+                                <Palette className="w-4 h-4 mr-2" />
+                                Color
+                            </Button>
+                            <Button 
+                                variant={searchMode === 'website' ? "default" : "ghost"} 
+                                onClick={() => setSearchMode('website')}
+                                className="px-4 py-2 rounded-lg text-sm"
+                            >
+                                <Globe className="w-4 h-4 mr-2" />
+                                Website
+                            </Button>
+                        </div>
+                        
+                        {searchQuery && (
+                            <Button variant="ghost" onClick={handleClearSearch} className="px-4 py-2">
+                                Clear
+                            </Button>
+                        )}
+                    </div>
                 </div>
             </div>
 
-            <div className="grid grid-cols-6 gap-2 mb-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-6">
                 {allRows.map((d: any, i: any) => {
                     return (
                         <ColorCard key={i} color={d} />
