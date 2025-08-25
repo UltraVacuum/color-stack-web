@@ -6,7 +6,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ErrorView } from "@/components/client/layout";
 import { ColorCard } from "./color-card";
 
-import "./color-flow.css";
+
 
 const PAGE_SIZE = 16
 
@@ -23,7 +23,7 @@ const Layout = ({ children }: {
 export const LoadingView = () => {
     const sks = new Array(PAGE_SIZE).fill(1).map((a, i) => i)
     return (
-        <div className="grid md:grid-cols-4 md:gap-4 grid-cols-1 mb-4">
+        <div className="grid md:grid-cols-4 md:gap-6 grid-cols-1 mb-6 gap-4">
             {
                 sks.map((a, i) => {
                     return (
@@ -82,7 +82,7 @@ export default function ColorFlow({ api }: any) {
 
     return (
         <Layout>
-            <div className="grid md:grid-cols-4 md:gap-4 grid-cols-1 mb-4">
+            <div className="grid md:grid-cols-4 md:gap-6 grid-cols-1 mb-6 gap-4">
                 {
                     allRows.map((page: any, idx: number) => {
                         return (

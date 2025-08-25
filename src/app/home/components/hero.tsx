@@ -2,8 +2,6 @@ import Link from 'next/link'
 import HeroImage from './colors.png'
 import { Palette, Sparkles, ArrowRight } from 'lucide-react'
 
-import './hero.css';
-
 const GradientBackground = () => {
   return (
     <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
@@ -25,7 +23,7 @@ export default function Hero({
         <div className='text-center space-y-6 md:space-y-8'>
           {/* Main Heading */}
           <div className="space-y-4">
-            <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 mb-4">
+            <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 mb-4 transition-all duration-300 hover:shadow-lg">
               <Palette className="w-5 h-5 text-purple-600 mr-2" />
               <span className="text-sm font-medium text-gray-700">Color Design Platform</span>
             </div>
@@ -59,14 +57,14 @@ export default function Hero({
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
             </div>
 
-            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 px-6 py-4 w-11/12 max-w-2xl">
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 px-6 py-4 w-11/12 max-w-2xl transition-all duration-300 hover:shadow-xl">
               <div className="flex items-center justify-between">
                 <p className='text-lg md:text-xl text-gray-800 font-medium'>
                   Get inspired by theme colors from world's most popular pages
                 </p>
                 <Link
                   href="/explore"
-                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-200 group/button"
+                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 group/button"
                 >
                   <span className="mr-2">Explore</span>
                   <ArrowRight className="w-4 h-4 group-hover/button:translate-x-1 transition-transform" />
@@ -77,15 +75,15 @@ export default function Hero({
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto pt-10 md:pt-12">
-            <div className="text-center">
+            <div className="text-center transform hover:scale-105 transition-transform duration-300">
               <div className="text-3xl md:text-4xl font-bold text-blue-600">10K+</div>
               <div className="text-sm text-gray-600 font-medium">Color Palettes</div>
             </div>
-            <div className="text-center">
+            <div className="text-center transform hover:scale-105 transition-transform duration-300">
               <div className="text-3xl md:text-4xl font-bold text-green-600">5K+</div>
               <div className="text-sm text-gray-600 font-medium">Websites Analyzed</div>
             </div>
-            <div className="text-center">
+            <div className="text-center transform hover:scale-105 transition-transform duration-300">
               <div className="text-3xl md:text-4xl font-bold text-purple-600">99%</div>
               <div className="text-sm text-gray-600 font-medium">Designer Satisfaction</div>
             </div>

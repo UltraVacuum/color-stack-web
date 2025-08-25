@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { ClipCopy } from '@/components/local/clip-copy';
 
-import "./color-card.css";
+
 
 // todo: formate
 const hsvFormat = (color: any) => {
@@ -17,9 +17,8 @@ export default function ColorCard({ color }: { color: any }) {
                 w-full h-24 
                 px-4 py-2
                 border border-dotted 
-                card-item
                 block
-                hover:shadow-lg transition-shadow
+                hover:shadow-lg hover:scale-105 hover:border-none transition-all duration-300 ease-in-out
             "
             style={{
                 background: `${color.hex}`

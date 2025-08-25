@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
     :root {
@@ -75,8 +73,4 @@
         background-color: hsl(var(--background));
         color: hsl(var(--foreground));
     }
-}
-
-body {
-    /* overflow: hidden; */
 }
