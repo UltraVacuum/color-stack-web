@@ -2,24 +2,16 @@
 > color-stack@0.1.0 dev
 > next dev
 
- ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
- We detected multiple lockfiles and selected the directory of /Users/vicvinc/pnpm-lock.yaml as the root directory.
- To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
-   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
- Detected additional lockfiles: 
-   * /Users/vicvinc/Desktop/codespace/color-stack-fe/pnpm-lock.yaml
-
-   ▲ Next.js 15.5.0
-   - Local:        http://localhost:3000
-   - Network:      http://192.168.1.7:3000
-   - Environments: .env.local, .env.development
-   - Experiments (use with caution):
-     ✓ optimizeCss
+ ⚠ Port 3000 is in use, trying 3001 instead.
+  ▲ Next.js 14.2.32
+  - Local:        http://localhost:3001
+  - Environments: .env.local, .env.development
+  - Experiments (use with caution):
+    · optimizeCss
 
  ✓ Starting...
- ✓ Ready in 1849ms
- ○ Compiling /explore/[id] ...
- ✓ Compiled /explore/[id] in 1798ms (2350 modules)
- GET /explore/test-id 200 in 3277ms
- ✓ Compiled in 493ms (2350 modules)
+ ✓ Ready in 1794ms
+ ○ Compiling /explore ...
+ ✓ Compiled /explore in 3.5s (2238 modules)
+ GET /explore 200 in 3747ms
 [?25h
