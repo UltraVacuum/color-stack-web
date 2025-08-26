@@ -2,10 +2,11 @@
 import useSWR from "swr";
 import {
     useState,
-    useEffect
+    useEffect,
+    useMemo
 } from "react";
 import {
-    MinusCircle, PlusCircle
+    MinusCircle, PlusCircle, Search
 } from 'lucide-react';
 import {
     fetcher,
@@ -79,6 +80,7 @@ export default function Main({ eid }: { eid: string }) {
     const [showColor, setShowColor] = useState([]);
     const [pageData, setPageData] = useState<any>(null);
     const [filter, setFilter] = useState<Array<string>>([]);
+    const [searchQuery, setSearchQuery] = useState('');
 
     const [threshold, setThreshold] = useState<THRESHOLD>(initThreshold);
 
@@ -136,20 +138,38 @@ export default function Main({ eid }: { eid: string }) {
         setShowColor(sc)
     }, [sort, mode])
 
-    // filter effect
+    // Search filter function
+    const filterBySearch = (colors: any[], query: string) => {
+        if (!query.trim()) return colors;
+        
+        const searchTerm = query.toLowerCase().trim();
+        return colors.filter(color => 
+            color.hex.toLowerCase().includes(searchTerm) ||
+            color.color.toLowerCase().includes(searchTerm)
+        );
+    };
+
+    // Combined filter effect
     useEffect(() => {
         if (!pageData) return
-        let sc = pageData.page_colors
+        
+        let sc = pageData.page_colors;
+        
+        // Apply search filter first
+        sc = filterBySearch(sc, searchQuery);
+        
+        // Apply color filters
         for (let k of filterMode) {
             if (filter.indexOf(k) > -1) {
-                const fn = filterFunc[k]
-                const t = threshold[k]
-                sc = sc.filter(({ rgb }: any) => fn(rgb, t))
+                const fn = filterFunc[k];
+                const t = threshold[k];
+                sc = sc.filter(({ rgb }: any) => fn(rgb, t));
             }
         }
-        sc = ColorSort(sc, sort, mode)
-        setShowColor(sc)
-    }, [filter, threshold])
+        
+        sc = ColorSort(sc, sort, mode);
+        setShowColor(sc);
+    }, [filter, threshold, searchQuery, pageData, sort, mode]);
 
     if (isLoading || !pageData) return (
         <ContentLayout>
@@ -169,86 +189,102 @@ export default function Main({ eid }: { eid: string }) {
         <ContentLayout>
             <PageHead item={pageData} />
             <div className="my-8">
-                <div className="flex items-center px-2 mb-2 space-x-2">
-                    <span className="flex-none w-18">sort by</span>
-                    <ToggleGroup
-                        onValueChange={setSort}
-                        value={sort}
-                        type="single">
-                        {
-                            sortFunc.map((s: any, i: any) => {
-                                return (
-                                    <ToggleGroupItem
-                                        key={i}
-                                        value={s}
-                                        aria-label="Toggle italic">
-                                        {s}
-                                    </ToggleGroupItem>
-                                )
-                            })
-                        }
-                    </ToggleGroup>
-                    <ToggleGroup
-                        onValueChange={setMode}
-                        value={mode}
-                        type="single">
-                        {
-                            sortMode.map((s: any, i: any) => {
-                                return (
-                                    <ToggleGroupItem
-                                        key={i}
-                                        value={s}
-                                        aria-label="Toggle italic">
-                                        {s}
-                                    </ToggleGroupItem>
-                                )
-                            })
-                        }
-                    </ToggleGroup>
+                {/* Search Section */}
+                <div className="filter-section">
+                    <h3 className="filter-header">Search Colors</h3>
+                    <div className="relative">
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                        <input
+                            type="text"
+                            placeholder="Search by hex or RGB (e.g., #FF0000 or rgb(255,0,0))"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                        />
+                    </div>
                 </div>
-                <div className="flex items-center px-2 mb-2 space-x-2">
-                    <span className="flex-none w-18">filter by</span>
-                    <ToggleGroup
-                        className="flex flex-col w-full"
-                        onValueChange={(v: any) => {
-                            // console.log(v)
-                            setFilter(v)
-                        }}
-                        value={filter}
-                        type="multiple"
-                        orientation='vertical'
-                    >
+
+                <div className="filter-section">
+                    <h3 className="filter-header">Sorting Options</h3>
+                    <div className="filter-group">
+                        <div className="filter-control">
+                            <label className="filter-label">Sort by</label>
+                            <ToggleGroup
+                                onValueChange={setSort}
+                                value={sort}
+                                type="single"
+                                className="flex flex-wrap gap-1">
+                                {
+                                    sortFunc.map((s: any, i: any) => (
+                                        <ToggleGroupItem
+                                            key={i}
+                                            value={s}
+                                            className="px-3 py-1 text-xs font-medium data-[state=on]:bg-blue-500 data-[state=on]:text-white"
+                                            aria-label={`Sort by ${s}`}>
+                                            {s}
+                                        </ToggleGroupItem>
+                                    ))
+                                }
+                            </ToggleGroup>
+                        </div>
+                        
+                        <div className="filter-control">
+                            <label className="filter-label">Color mode</label>
+                            <ToggleGroup
+                                onValueChange={setMode}
+                                value={mode}
+                                type="single"
+                                className="flex flex-wrap gap-1">
+                                {
+                                    sortMode.map((s: any, i: any) => (
+                                        <ToggleGroupItem
+                                            key={i}
+                                            value={s}
+                                            className="px-3 py-1 text-xs font-medium data-[state=on]:bg-green-500 data-[state=on]:text-white"
+                                            aria-label={`Mode ${s}`}>
+                                            {s}
+                                        </ToggleGroupItem>
+                                    ))
+                                }
+                            </ToggleGroup>
+                        </div>
+                    </div>
+                </div>
+                <div className="filter-section">
+                    <h3 className="filter-header">Filter Options</h3>
+                    <div className="filter-group">
                         {
-                            filterMode.map((s: FILTERS, i: number) => {
-                                return (
-                                    <div
-                                        key={i}
-                                        className="w-full flex flex-1 items-center"
-                                    >
+                            filterMode.map((s: FILTERS, i: number) => (
+                                <div key={i} className="filter-control">
+                                    <div className="flex items-center justify-between mb-2">
+                                        <label className="filter-label">Filter {s}</label>
                                         <ToggleGroupItem
                                             value={s}
-                                            className="w-24"
+                                            className="px-3 py-1 text-xs font-medium data-[state=on]:bg-purple-500 data-[state=on]:text-white"
                                             aria-label={`filter by ${s}`}>
                                             {s}
                                         </ToggleGroupItem>
-                                        <p className="flex-none w-60 text-black mx-2">
-                                            current threshold:
-                                            <span className="text-green-500 text-bold ml-2">
-                                                {threshold[s]}
+                                    </div>
+                                    
+                                    <div className="space-y-2">
+                                        <div className="flex items-center justify-between text-xs text-gray-600">
+                                            <span>Threshold: {threshold[s]}</span>
+                                            <span className="text-green-500 font-medium">
+                                                {THRESHOLD_MIN} - {THRESHOLD_MAX}
                                             </span>
-                                        </p>
-                                        <div className="flex-1 flex items-center space-x-2">
-                                            <span>{THRESHOLD_MIN}</span>
+                                        </div>
+                                        
+                                        <div className="flex items-center space-x-2">
                                             <MinusCircle
-                                                className="cursor-pointer"
-                                                onClick={() => {
-                                                    minusThreshold(s)
-                                                }} />
+                                                className="w-5 h-5 cursor-pointer text-gray-500 hover:text-red-500 transition-colors"
+                                                onClick={() => minusThreshold(s)}
+                                            />
                                             <Slider
                                                 defaultValue={[threshold[s]]}
                                                 value={[threshold[s]]}
                                                 max={THRESHOLD_MAX}
                                                 step={5}
+                                                className="flex-1"
                                                 onValueChange={([v]) => {
                                                     setThreshold({
                                                         ...threshold,
@@ -257,40 +293,41 @@ export default function Main({ eid }: { eid: string }) {
                                                 }}
                                             />
                                             <PlusCircle
-                                                className="cursor-pointer"
-                                                onClick={() => {
-                                                    addThreshold(s)
-                                                }} />
-                                            <span>{THRESHOLD_MAX}</span>
+                                                className="w-5 h-5 cursor-pointer text-gray-500 hover:text-green-500 transition-colors"
+                                                onClick={() => addThreshold(s)}
+                                            />
                                         </div>
                                     </div>
-                                )
-                            })
+                                </div>
+                            ))
                         }
-                    </ToggleGroup>
+                    </div>
                 </div>
-                <div className="flex items-center px-2 mb-2 space-x-4">
-                    <p className="flex-none">
-                        total colors:
-                        <span className="text-green-500 text-bold ml-2">
-                            {pageData.page_colors.length}
-                        </span>
-                    </p>
-                    <p className="flex-none">
-                        filtered colors:
-                        <span className="text-green-500 text-bold ml-2">
-                            {pageData.page_colors.length - showColor.length}
-                        </span>
-                    </p>
-                    <p className="flex-none italic text-slate-500">
-                        if all the colors are filtered, you can slide the threshold to get the perfect colors.
-                    </p>
+                <div className="stats-container">
+                    <div className="stat-item">
+                        <span className="stat-value">{pageData.page_colors.length}</span>
+                        <span className="stat-label">Total Colors</span>
+                    </div>
+                    <div className="stat-item">
+                        <span className="stat-value">{showColor.length}</span>
+                        <span className="stat-label">Showing</span>
+                    </div>
+                    <div className="stat-item">
+                        <span className="stat-value">{pageData.page_colors.length - showColor.length}</span>
+                        <span className="stat-label">Filtered</span>
+                    </div>
+                    <div className="flex-1 min-w-[200px]">
+                        <p className="text-sm text-gray-600 italic">
+                            💡 Adjust thresholds to fine-tune your color selection. Higher values show more colors.
+                        </p>
+                    </div>
                 </div>
-                <div className="grid md:grid-cols-4 grid-cols-2 gap-2">
+
+                <div className="color-grid">
                     {
-                        showColor.map((c: any, idx: any) => {
-                            return <ColorItem color={c} key={idx} />
-                        })
+                        showColor.map((c: any, idx: any) => (
+                            <ColorItem color={c} key={idx} />
+                        ))
                     }
                 </div>
             </div>
