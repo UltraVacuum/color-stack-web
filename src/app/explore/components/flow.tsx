@@ -27,16 +27,25 @@ export const LoadingView = () => {
       {
         sks.map((a, i) => {
           return (
-            <div key={i} className="card p-4 flex flex-col space-y-4">
-              <Skeleton className="h-4 w-3/4 rounded" />
-              <div className="grid grid-cols-4 gap-2 my-2 flex-1">
+            <div key={i} className="card p-4 flex flex-col space-y-4 animate-pulse">
+              {/* Title skeleton with shimmer effect */}
+              <Skeleton className="h-5 w-3/4 rounded-md bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer" />
+              
+              {/* Color grid skeleton with staggered animation */}
+              <div className="grid grid-cols-4 gap-2 my-3 flex-1">
                 {Array.from({ length: 8 }).map((_, idx) => (
-                  <Skeleton key={idx} className="aspect-square rounded" />
+                  <Skeleton 
+                    key={idx} 
+                    className="aspect-square rounded-md bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer" 
+                    style={{ animationDelay: `${idx * 0.1}s` }}
+                  />
                 ))}
               </div>
-              <div className="flex items-center justify-between">
-                <Skeleton className="h-3 w-20 rounded" />
-                <Skeleton className="h-4 w-4 rounded-full" />
+              
+              {/* Footer skeleton */}
+              <div className="flex items-center justify-between mt-2">
+                <Skeleton className="h-4 w-24 rounded-md bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer" />
+                <Skeleton className="h-6 w-6 rounded-full bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-shimmer" />
               </div>
             </div>
           )
