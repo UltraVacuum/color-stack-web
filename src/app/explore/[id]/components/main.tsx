@@ -143,10 +143,13 @@ export default function Main({ eid }: { eid: string }) {
         if (!query.trim()) return colors;
         
         const searchTerm = query.toLowerCase().trim();
-        return colors.filter(color => 
-            color.hex.toLowerCase().includes(searchTerm) ||
-            color.color.toLowerCase().includes(searchTerm)
-        );
+        return colors.filter(color => {
+            // Check if color has hex property for search
+            const hexValue = color.hex || color.color || '';
+            const rgbValue = color.rgb ? color.rgb.join(',') : '';
+            return hexValue.toLowerCase().includes(searchTerm) ||
+                   rgbValue.includes(searchTerm);
+        });
     };
 
     // Combined filter effect
@@ -163,7 +166,11 @@ export default function Main({ eid }: { eid: string }) {
             if (filter.indexOf(k) > -1) {
                 const fn = filterFunc[k];
                 const t = threshold[k];
-                sc = sc.filter(({ rgb }: any) => fn(rgb, t));
+                sc = sc.filter((color: any) => {
+                    // Ensure we have rgb array for filtering
+                    const rgb = color.rgb || [0, 0, 0];
+                    return fn(rgb, t);
+                });
             }
         }
         

@@ -9,17 +9,14 @@
  Detected additional lockfiles: 
    * /Users/vicvinc/Desktop/codespace/color-stack-fe/pnpm-lock.yaml
 
+ ⚠ Port 3000 is in use by process 42883, using available port 3001 instead.
    ▲ Next.js 15.5.0
-   - Local:        http://localhost:3000
-   - Network:      http://192.168.1.7:3000
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.150.140:3001
    - Environments: .env.local, .env.development
    - Experiments (use with caution):
      ✓ optimizeCss
 
  ✓ Starting...
- ✓ Ready in 1849ms
- ○ Compiling /explore/[id] ...
- ✓ Compiled /explore/[id] in 1798ms (2350 modules)
- GET /explore/test-id 200 in 3277ms
- ✓ Compiled in 493ms (2350 modules)
+ ✓ Ready in 1776ms
 [?25h

@@ -219,3 +219,56 @@ Time 2.28775
  GET /color-sets 500 in 2086ms
  ✓ Compiled /home in 188ms (1773 modules)
  GET /home 200 in 1963ms
+ ✓ Compiled in 765ms (2663 modules)
+ ✓ Compiled in 324ms (2663 modules)
+ ✓ Compiled in 156ms (993 modules)
+ ✓ Compiled in 149ms (993 modules)
+ ✓ Compiled in 215ms (993 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/2.pack.gz_' -> '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/2.pack.gz'
+ ✓ Compiled in 192ms (993 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 185ms (993 modules)
+ ✓ Compiled in 162ms (993 modules)
+ ✓ Compiled in 263ms (993 modules)
+ ✓ Compiled in 274ms (993 modules)
+ ✓ Compiled in 184ms (993 modules)
+ ✓ Compiled in 218ms (993 modules)
+ ✓ Compiled in 143ms (993 modules)
+ ✓ Compiled in 226ms (993 modules)
+ ✓ Compiled in 154ms (993 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/3.pack.gz_' -> '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/3.pack.gz'
+ ✓ Compiled in 169ms (993 modules)
+ ✓ Compiled in 164ms (993 modules)
+ ✓ Compiled in 161ms (993 modules)
+ ✓ Compiled in 142ms (993 modules)
+ ✓ Compiled in 163ms (993 modules)
+ ✓ Compiled in 156ms (993 modules)
+ ✓ Compiled in 160ms (993 modules)
+ ✓ Compiled in 162ms (993 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 167ms (993 modules)
+ ✓ Compiled in 154ms (993 modules)
+ ✓ Compiled in 155ms (993 modules)
+ ✓ Compiled in 174ms (993 modules)
+ ✓ Compiled in 138ms (993 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 174ms (993 modules)
+ ✓ Compiled in 157ms (993 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 287ms (993 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 917ms (2663 modules)
+ ✓ Compiled in 233ms (993 modules)
+ ✓ Compiled in 187ms (993 modules)
+ ✓ Compiled in 1095ms (2676 modules)
+ ✓ Compiled in 158ms (993 modules)
+ ✓ Compiled in 474ms (2663 modules)
+ ✓ Compiled in 321ms (2663 modules)
+ ✓ Compiled in 285ms (2663 modules)
+ ✓ Compiled in 254ms (993 modules)
+ ✓ Compiled in 454ms (2663 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/vicvinc/Desktop/codespace/color-stack-fe/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 339ms (2663 modules)
+ ✓ Compiled in 315ms (2663 modules)
+ ✓ Compiled in 175ms (993 modules)
+[?25h

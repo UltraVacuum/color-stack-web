@@ -13,13 +13,13 @@ import './color-card.scss';
 export const ColorList = ({ colors }: any) => {
     const sc = filterShow(colors, 8)
     return (
-        <div className="flex flex-wrap">
+        <div className="color-grid">
             {sc.map((color: any, index: any) => {
                 return (
                     <ColorItemDetail
                         color={color}
                         key={index}
-                        className="flex-1 h-24 color-item"
+                        className="color-grid-item"
                     />
                 )
             })}
@@ -29,10 +29,10 @@ export const ColorList = ({ colors }: any) => {
 
 export const ColorHead = ({ page }: { page: any }) => {
     return (
-        <header id="header" className="relative z-20">
+        <header className="card-header">
             <Link href={`/explore/${page.id}`}>
-                <h1 className="text-sm leading-6 font-mono text-sky-500 truncate ...">
-                    {page.page_title || "un titled"}
+                <h1 className="text-base font-semibold text-foreground hover:text-primary transition-colors truncate">
+                    {page.page_title || "Untitled Collection"}
                 </h1>
             </Link>
         </header>
@@ -42,18 +42,18 @@ export const ColorHead = ({ page }: { page: any }) => {
 export const ColorCard = ({ page }: { page: any }) => {
     const showColors = page.page_colors
     return (
-        <div className="card divide-y divide-zinc-400 mb-1">
+        <div className="card group">
             <ColorHead page={page} />
-            <div className="py-2">
+            <div className="py-3 flex-1">
                 <ColorList colors={showColors} />
             </div>
-            <div className="flex items-center justify-between space-x-2 text-sm py-2">
-                <span className="flex items-center text-sky-500">
-                    <Clock4 className='w-4 h-4 text-sky-500 mr-1' />
+            <div className="card-footer flex items-center justify-between">
+                <span className="flex items-center text-muted-foreground">
+                    <Clock4 className='w-4 h-4 mr-1' />
                     {dayjs(page.created_at).fromNow()}
                 </span>
                 <UserAvatar
-                    className="w-4 h-4"
+                    className="w-5 h-5"
                     user={{
                         avatarUrl: page.user.avatar,
                         userName: page.user.name

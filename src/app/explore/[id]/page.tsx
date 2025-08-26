@@ -31,11 +31,26 @@ export async function generateMetadata(
     // optionally access and extend (rather than replace) parent metadata
     const previousImages = (await parent).openGraph?.images || []
     const resolvedParams = await params;
-    const { data: [meta], error }: any = await fetchMata(resolvedParams.id)
+    const { data, error }: any = await fetchMata(resolvedParams.id)
 
-    const domain = new URL(meta.page_url).hostname
+    // Handle case where data is empty or undefined
+    if (!data || data.length === 0 || !data[0]) {
+        return {
+            title: 'Explore Theme Colors - Color Stack',
+            openGraph: {
+                title: 'Explore Theme Colors - Color Stack',
+                description: 'Explore beautiful color themes and palettes',
+                url: 'https://color-stack.top',
+                siteName: 'Color Stack',
+                images: ['/logo.png', ...previousImages],
+            },
+        }
+    }
+
+    const meta = data[0];
+    const domain = meta.page_url ? new URL(meta.page_url).hostname : 'unknown domain'
     const title = `Explore theme colors on ${domain}`
-    const description = `Explore theme colors on ${domain}, stacked by ${meta.user.name} at ${meta.updated_at}`
+    const description = `Explore theme colors on ${domain}, stacked by ${meta.user?.name || 'unknown user'} at ${meta.updated_at || 'unknown time'}`
 
     return {
         title,
